@@ -1,0 +1,1662 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     67073,       1654]
+NotebookOptionsPosition[     55103,       1449]
+NotebookOutlinePosition[     59241,       1533]
+CellTagsIndexPosition[     59162,       1528]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["", "SlideShowNavigationBar", "FirstSlide",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"ae861ed8-5fa1-4088-84fd-2651cc7b368a"],
+
+Cell["Introdu\[CCedilla]\[ATilde]o \[AGrave] F\[IAcute]sica Computacional I \
+(2022.2)", "Title",
+ CellChangeTimes->{
+  3.559948400406288*^9, {3.699269571766136*^9, 3.699269573578824*^9}, {
+   3.7099080105038958`*^9, 3.7099080108133383`*^9}, {3.727189496068931*^9, 
+   3.7271894962748613`*^9}, {3.83932299294512*^9, 3.839323000605739*^9}, {
+   3.874403983135366*^9, 
+   3.87440398322046*^9}},ExpressionUUID->"92508663-47f1-4deb-9615-\
+d2c271e8e453"],
+
+Cell["Aula 7: importa\[CCedilla]\[ATilde]o de dados; ajustes n\[ATilde]o \
+lineares", "Subtitle",
+ CellChangeTimes->{{3.699269582406044*^9, 3.699269584285553*^9}, {
+   3.8393232649484053`*^9, 3.839323284264048*^9}, 3.840031268565436*^9, {
+   3.8407028843722677`*^9, 3.840702924713172*^9}, {3.840714600599773*^9, 
+   3.8407146281949797`*^9}, {3.841157909295815*^9, 3.841157911477744*^9}, {
+   3.841480259563218*^9, 3.8414802737602463`*^9}, {3.8415945589945517`*^9, 
+   3.841594560546528*^9}, {3.842262188714292*^9, 3.8422622084045753`*^9}, {
+   3.842288735025601*^9, 3.8422887376233883`*^9}, {3.842288769619337*^9, 
+   3.8422887810036163`*^9}, {3.843294467913928*^9, 3.843294500290168*^9}, {
+   3.843553405919444*^9, 3.8435534093620787`*^9}, {3.843899024345776*^9, 
+   3.8438990498951845`*^9}, {3.844104755695139*^9, 3.8441047787114773`*^9}, {
+   3.874403985688244*^9, 
+   3.874403985822639*^9}},ExpressionUUID->"14f8f51b-58e9-4033-aea1-\
+fd611ac95bb9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"ee3ea2a1-973b-4e9a-a704-0d8a3c30d1be"],
+
+Cell["Importando dados", "Section",
+ CellChangeTimes->{
+  3.699269664116198*^9, 3.70454748091461*^9, {3.704547516075143*^9, 
+   3.7045475190812902`*^9}, {3.706294276733098*^9, 3.706294304716371*^9}, {
+   3.839323324298633*^9, 3.839323331059084*^9}, 3.840031288455207*^9, {
+   3.840714636688951*^9, 3.840714639748958*^9}, {3.841057130911109*^9, 
+   3.84105713513932*^9}, {3.841480515514193*^9, 3.84148051572683*^9}, {
+   3.84226221732572*^9, 3.842262223457004*^9}, {3.843294513408573*^9, 
+   3.843294517052754*^9}, {3.8438990711047573`*^9, 
+   3.843899073171992*^9}},ExpressionUUID->"7da6da63-6378-4f26-b58d-\
+d42a7250afa4"],
+
+Cell[TextData[{
+ "Ao trabalharmos com dados experimentais, muitas vezes queremos ler esses \
+dados de um arquivo (gerado, por exemplo, por um equipamento) em vez de digit\
+\[AAcute]-los diretamente no Mathematica. Isso pode ser feito com a fun\
+\[CCedilla]\[ATilde]o ",
+ StyleBox[ButtonBox["Import",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/Import.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/Import.html"],
+  FontFamily->"Source Code Pro"],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.6992696952616243`*^9, 3.6992696957779827`*^9}, {
+   3.704547416597644*^9, 3.704547418388081*^9}, {3.8393233348613234`*^9, 
+   3.839323366214238*^9}, {3.839323576559081*^9, 3.839323576563138*^9}, 
+   3.840031301280365*^9, {3.840714647849332*^9, 3.840714700814382*^9}, {
+   3.841480523939232*^9, 3.841480544976879*^9}, {3.841480739096553*^9, 
+   3.841480739636643*^9}, {3.8422622643967133`*^9, 3.8422623532037497`*^9}, {
+   3.842262439308573*^9, 3.8422624573684273`*^9}, {3.8422649573788548`*^9, 
+   3.8422649619920673`*^9}, {3.842358288105185*^9, 3.8423582908266573`*^9}, {
+   3.8432945364257298`*^9, 3.8432945825057983`*^9}, {3.843294685610161*^9, 
+   3.843294812070178*^9}, {3.8432948733770227`*^9, 3.843294900533929*^9}, {
+   3.843294935611968*^9, 3.843294945646529*^9}, {3.843294979599766*^9, 
+   3.843295039675002*^9}, {3.843295250118289*^9, 3.84329528363239*^9}, {
+   3.8435546465204973`*^9, 3.843554650255834*^9}, {3.843640645839772*^9, 
+   3.843640685473322*^9}, {3.843899079600821*^9, 3.8438991439134645`*^9}, {
+   3.8438995257773323`*^9, 
+   3.843899525781332*^9}},ExpressionUUID->"3b730a40-c305-44bd-95b8-\
+df5440115120"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Antes de exemplific\[AAcute]-la, vale destacar que \[EAcute] \[UAcute]til \
+conhecer as fun\[CCedilla]\[OTilde]es ",
+ StyleBox[ButtonBox["SetDirectory",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/SetDirectory.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/SetDirectory.html"],
+  
+  FontFamily->"Source Code Pro"],
+ " e ",
+ StyleBox[ButtonBox["NotebookDirectory",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/SetDirectory.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/SetDirectory.html"],
+  
+  FontFamily->"Source Code Pro"],
+ ". A primeira define a pasta de trabalho e a segunda retorna a pasta em que \
+o notebook atual est\[AAcute] salvo. Vamos supor aqui que os arquivos a \
+importar est\[ATilde]o localizados na mesma pasta que o notebook:"
+}], "Text",
+ CellChangeTimes->{{3.8439000487413206`*^9, 3.8439000610855465`*^9}, {
+  3.843900144204976*^9, 3.8439001839881444`*^9}, {3.843900235028965*^9, 
+  3.8439002427850943`*^9}, {3.843900287048004*^9, 3.843900303636487*^9}, {
+  3.843900499106572*^9, 3.8439006240234003`*^9}, {3.874405544172724*^9, 
+  3.8744055443623037`*^9}},ExpressionUUID->"08c06edf-786a-4810-91b9-\
+62b74aaaa484"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.843295043145905*^9, 3.843295110901678*^9}, {
+   3.8432951789976463`*^9, 3.8432952309373493`*^9}, {3.8432952937245903`*^9, 
+   3.843295399936949*^9}, {3.843295432342586*^9, 3.843295437287629*^9}, {
+   3.843295535477759*^9, 3.843295537445619*^9}, {3.843295591947907*^9, 
+   3.843295616162715*^9}, {3.843295703649836*^9, 3.8432957110131407`*^9}, {
+   3.843555652622354*^9, 3.843555664889596*^9}, 3.843584627417536*^9, {
+   3.843900630047492*^9, 3.843900647216405*^9}, 
+   3.8744095866722383`*^9},ExpressionUUID->"8bfe1316-e2ad-448b-95e5-\
+c8d6193b7cb4"],
+
+Cell[TextData[{
+ "Note que invocamos a fun\[CCedilla]\[ATilde]o ",
+ StyleBox["NotebookDirectory",
+  FontFamily->"Source Code Pro"],
+ " com um argumento vazio, o que \[EAcute] entendido como uma \
+refer\[EHat]ncia ao notebook atual."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.843295759858673*^9, 3.843295850670024*^9}, {
+  3.843900719689001*^9, 
+  3.8439007488437743`*^9}},ExpressionUUID->"80ae9563-1c02-4b66-a481-\
+5e606d8be694"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"0d6bbe14-c226-415e-b1fc-fcf294444606"],
+
+Cell[TextData[{
+ "O problema que investigaremos hoje diz respeito a \
+oscila\[CCedilla]\[OTilde]es de um tablet, capturadas por um aplicativo que \
+faz uso do aceler\[OHat]metro do pr\[OAcute]prio aparelho. O v\[IAcute]deo \
+que mostra esse movimento est\[AAcute] dispon\[IAcute]vel na pasta do \
+notebook, sob o nome de \[OpenCurlyDoubleQuote]videosem.mp4\
+\[CloseCurlyDoubleQuote]. Vamos import\[AAcute]-lo com a fun\[CCedilla]\
+\[ATilde]o ",
+ StyleBox["Import",
+  FontFamily->"Source Code Pro"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.843295915233144*^9, 3.8432959210819607`*^9}, {
+   3.843295955496604*^9, 3.843295958139822*^9}, {3.843296011870647*^9, 
+   3.843296086919487*^9}, {3.843297814136956*^9, 3.843297881700449*^9}, {
+   3.843584988405768*^9, 3.84358498873169*^9}, {3.843901455789824*^9, 
+   3.8439015178227663`*^9}, {3.8439019381135955`*^9, 3.8439020330090537`*^9}, 
+   3.844081357392647*^9},ExpressionUUID->"bb6c48d3-962e-46a6-9d6a-\
+ad3cb2b9b203"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Import", "[", "\"\<videosem.mp4\>\"", "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.843295993399487*^9, 3.8432960053811626`*^9}, {
+   3.843296089942525*^9, 3.843296099511011*^9}, {3.843297887958171*^9, 
+   3.8432980374364967`*^9}, {3.843298079822111*^9, 3.8432980985118713`*^9}, {
+   3.8432983849096003`*^9, 3.843298385962276*^9}, {3.8433020530741663`*^9, 
+   3.843302054450349*^9}, {3.843555680281966*^9, 3.843555680730096*^9}, 
+   3.8435846244812717`*^9, {3.843901847304658*^9, 3.8439018613913355`*^9}, 
+   3.874409584590822*^9},ExpressionUUID->"35e41775-dae6-460d-bcea-\
+1818650dcecd"],
+
+Cell["\<\
+Note que a fun\[CCedilla]\[ATilde]o identifica o tipo de arquivo por sua \
+extens\[ATilde]o. Veja a documenta\[CCedilla]\[ATilde]o para mais informa\
+\[CCedilla]\[OTilde]es.\
+\>", "ItemParagraph",
+ CellChangeTimes->{{3.8439021928333054`*^9, 
+  3.843902248839401*^9}},ExpressionUUID->"c5e89106-e538-4d8e-9721-\
+06a38d7b7a14"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"17774e00-e7a4-4e88-b623-1d0211c771fc"],
+
+Cell[TextData[{
+ "Tamb\[EAcute]m na pasta do notebook h\[AAcute] um arquivo, chamado \
+\[OpenCurlyDoubleQuote]dadossem.dat\[CloseCurlyDoubleQuote], contendo duas \
+colunas com os dados de tempo e de posi\[CCedilla]\[ATilde]o (em rela\
+\[CCedilla]\[ATilde]o ao equil\[IAcute]brio). Para import\[AAcute]-lo, \
+fazemos novamente uso de ",
+ StyleBox["Import",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ". Em seguida, vamos fazer o gr\[AAcute]fico dos dados (que s\[ATilde]o \
+importados como uma lista)."
+}], "Text",
+ CellChangeTimes->{{3.84329829620815*^9, 3.843298318549615*^9}, {
+  3.843298362594396*^9, 3.84329840933783*^9}, {3.843298440613007*^9, 
+  3.843298468809654*^9}, {3.8439022934095707`*^9, 3.8439023384710937`*^9}, {
+  3.8439122809009743`*^9, 3.843912318328432*^9}, {3.8439123575687723`*^9, 
+  3.843912417385487*^9}, {3.8744094652467527`*^9, 3.874409485641863*^9}, {
+  3.8744095166927233`*^9, 
+  3.874409578961897*^9}},ExpressionUUID->"0748b206-6537-42a5-be25-\
+2fa6fe5f3073"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"dadossem", "=", 
+    RowBox[{"Import", "[", "\"\<dadossem.dat\>\"", "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"optam", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", " ", "Large"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grafsem", "=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"dadossem", ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<\!\(\*StyleBox[\"t\",FontSlant->\"Italic\"]\)\>\"", ",", 
+       "\"\<\!\(\*StyleBox[\"y\",FontSlant->\"Italic\"]\)(\!\(\*StyleBox[\"t\"\
+,FontSlant->\"Italic\"]\))\>\""}], "}"}]}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.84329841705902*^9, 3.84329842855435*^9}, {
+   3.843298513031458*^9, 3.843298520106174*^9}, 3.8435846223536882`*^9, {
+   3.843912327769134*^9, 3.843912338354465*^9}, {3.8439123855795507`*^9, 
+   3.843912424979546*^9}, {3.874409583364212*^9, 
+   3.87440959801047*^9}},ExpressionUUID->"329aa24c-4d42-4612-8acc-\
+6d4345704a4f"],
+
+Cell["\<\
+O movimento parece peri\[OAcute]dico, com pequenas discrep\[AHat]ncias que \
+podem ser atribu\[IAcute]das ao fato de que a trajet\[OAcute]ria do tablet n\
+\[ATilde]o \[EAcute] perfeitamente unidimensional.\
+\>", "ItemParagraph",
+ CellChangeTimes->{{3.84391263882132*^9, 
+  3.843912680501707*^9}},ExpressionUUID->"d6af5964-e238-4ad6-b7c7-\
+bbdb53c00954"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"916aafb6-db56-46e9-abc4-ac7b00e07c2a"],
+
+Cell[TextData[{
+ "Vamos tentar ajustar o movimento \[AGrave]quele de um oscilador \
+harm\[OHat]nico simples, utilizando a solu\[CCedilla]\[ATilde]o geral ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", " ", 
+    RowBox[{"cos", "(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[Omega]", "0"], "t"}], "+", "\[Phi]"}], ")"}]}], 
+   TraditionalForm]],ExpressionUUID->"e8882d2c-9e87-4461-9b75-eafd4c01965f"],
+ ". Isso pode ser feito com o aux\[IAcute]lio da fun\[CCedilla]\[ATilde]o ",
+ StyleBox[ButtonBox["FindFit",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/NonlinearModelFit.html"], 
+    None},
+  ButtonNote->
+   "https://reference.wolfram.com/language/ref/NonlinearModelFit.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ". \[CapitalEAcute] preciso dar bons palpites iniciais sobre os \
+par\[AHat]metros, uma vez que o algoritmo de ajuste funciona pela minimiza\
+\[CCedilla]\[ATilde]o local dos erros. Nossos palplites ser\[ATilde]o ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "=", 
+    RowBox[{"-", "0.2"}]}], TraditionalForm]],ExpressionUUID->
+  "88dba4ef-9337-474b-b86d-d400f5b82cad"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Omega]", "0"], "=", 
+    RowBox[{"2", 
+     RowBox[{"\[Pi]", "/", "T"}]}]}], TraditionalForm]],ExpressionUUID->
+  "d80c5a02-5c31-4334-8fae-4d986af53106"],
+ " com ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "104f50f2-aaf9-45ff-9179-a553a1814340"],
+ " estimado dos dados como ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"8.1", "/", "6"}], TraditionalForm]],ExpressionUUID->
+  "b00cb428-bd9b-4a7e-a3d7-3957c2dea9d6"],
+ ", e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Phi]", "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "fc6e5873-57fe-4312-9abe-9ad47dc846b4"],
+ ". A sintaxe de FindFit \[EAcute]:"
+}], "Text",
+ CellChangeTimes->{{3.843301813765079*^9, 3.843301933487143*^9}, {
+  3.843306013438015*^9, 3.843306013442376*^9}, {3.843913245975964*^9, 
+  3.843913279330587*^9}, {3.843913358034128*^9, 3.843913392270213*^9}, {
+  3.843913424300049*^9, 3.843913454248246*^9}, {3.8439148193655033`*^9, 
+  3.843914888020431*^9}, {3.843915028627599*^9, 3.8439150826496363`*^9}, {
+  3.843915483106853*^9, 
+  3.843915561900948*^9}},ExpressionUUID->"644a62b1-ac31-494c-8dfd-\
+7ed730ae7044"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"parsem", "=", 
+  RowBox[{"FindFit", "[", 
+   RowBox[{"dadossem", ",", 
+    RowBox[{"A", "*", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"\[Omega]0", "*", "t"}], "+", "\[Phi]"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"A", ",", " ", 
+        RowBox[{"-", "0.2"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Omega]0", ",", 
+        RowBox[{"2", "*", 
+         RowBox[{"\[Pi]", "/", 
+          RowBox[{"(", 
+           RowBox[{"8.1", "/", "6"}], ")"}]}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Phi]", ",", " ", "0"}], "}"}]}], "}"}], ",", "t"}], "]"}], 
+  "  "}]], "Input",
+ CellChangeTimes->{{3.843301940659185*^9, 3.843301942983018*^9}, 
+   3.8435846199233007`*^9, {3.843913466801145*^9, 3.843913473732304*^9}, {
+   3.8439135276140738`*^9, 3.8439135575615273`*^9}, {3.843913723997471*^9, 
+   3.843913725283992*^9}, {3.8439138014211683`*^9, 3.843913829208003*^9}, {
+   3.843913967392338*^9, 3.843914015734133*^9}, {3.8439141027430468`*^9, 
+   3.843914112308466*^9}, {3.843914142912386*^9, 3.843914161448896*^9}, {
+   3.843914220231526*^9, 3.8439142667674923`*^9}, {3.843914414305341*^9, 
+   3.8439144380016527`*^9}, {3.843914468037938*^9, 3.843914504965304*^9}, {
+   3.843914556755426*^9, 3.8439145915210457`*^9}, {3.84391477368758*^9, 
+   3.843914781723958*^9}, 3.843914900811434*^9, {3.843914965437447*^9, 
+   3.8439150015846853`*^9}, {3.8439150965422087`*^9, 3.843915096854364*^9}, {
+   3.843916780666649*^9, 3.843916780774632*^9}, 
+   3.874409864786182*^9},ExpressionUUID->"9a64b630-5e01-460e-8037-\
+f58778c3c710"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Vamos fazer um gr\[AAcute]fico da fun\[CCedilla]\[ATilde]o de ajuste com os \
+dados obtidos a partir do uso de ",
+ StyleBox["FindFit",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.874409921863316*^9, 3.8744099540885153`*^9}, 
+   3.8744100109533577`*^9},ExpressionUUID->"5f8426cc-ddbf-4a07-8f61-\
+1415f3fdf650"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ajustesem", "=", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"A", "*", 
+        RowBox[{"Cos", "[", 
+         RowBox[{
+          RowBox[{"\[Omega]0", "*", "t"}], "+", "\[Phi]"}], "]"}]}], "/.", 
+       "parsem"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"{", 
+   RowBox[{"grafsem", ",", "ajustesem"}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8433019581082563`*^9, 3.843301978397332*^9}, 
+   3.843302027943808*^9, 3.843315501247065*^9, 3.8433155763402853`*^9, {
+   3.843913644902452*^9, 3.843913693695138*^9}, {3.843913735035483*^9, 
+   3.843913737401575*^9}, {3.843913901015904*^9, 3.843913908333117*^9}, {
+   3.843914195539837*^9, 3.843914201889683*^9}, {3.8439144498012857`*^9, 
+   3.8439144609294662`*^9}, {3.8439145976915197`*^9, 3.843914619091453*^9}, {
+   3.84391473302344*^9, 3.8439147425013847`*^9}, {3.843914786609515*^9, 
+   3.8439147875068817`*^9}, {3.843915009146949*^9, 3.843915010070628*^9}, {
+   3.843915102698704*^9, 3.843915102947576*^9}, {3.843916788789893*^9, 
+   3.843916788911354*^9}, {3.87440986640545*^9, 
+   3.874409877841851*^9}},ExpressionUUID->"ac4ba23e-729c-4524-a64c-\
+1c6a721d9c92"]
+}, Open  ]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"3d840658-e7d8-403c-867c-a584b277195f"],
+
+Cell["\<\
+Agora vamos analisar o que ocorre quando colocamos um peda\[CCedilla]o de \
+papel\[ATilde]o preso perpendicularmente ao tablet, de modo a produzir uma \
+resist\[EHat]ncia do ar relevante.\
+\>", "Text",
+ CellChangeTimes->{{3.84331583893407*^9, 3.843315839839013*^9}, {
+  3.843315893265614*^9, 3.843315919509251*^9}, {3.843470235013055*^9, 
+  3.8434702350181427`*^9}, {3.84347029756699*^9, 3.843470320381606*^9}, {
+  3.843917372118309*^9, 
+  3.8439174370747337`*^9}},ExpressionUUID->"ea9daf24-7658-4d4d-9dc9-\
+9882aa98b880"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", "\"\<videocom.mp4\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.843315922249659*^9, 3.843315936509557*^9}, 
+   3.8433159918784723`*^9, {3.843470272613654*^9, 3.843470277614743*^9}, {
+   3.843470336038171*^9, 3.843470420519916*^9}, {3.843555696246269*^9, 
+   3.843555696524178*^9}, 3.843584617719832*^9, {3.8439174411252537`*^9, 
+   3.8439174500242653`*^9}, {3.843917552089672*^9, 3.843917554054543*^9}, 
+   3.8439235711713657`*^9},ExpressionUUID->"ba8b8c62-f258-46b0-9893-\
+3b8d1d653013"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"dadoscom", "=", 
+    RowBox[{"Import", "[", "\"\<dadoscom.dat\>\"", "]"}]}], ";"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.843917571758642*^9, 3.843917579514336*^9}, {
+   3.843917653000722*^9, 3.843917671685505*^9}, 3.84391774110672*^9, {
+   3.843923588107814*^9, 3.8439235986960773`*^9}, 
+   3.8744101176002274`*^9},ExpressionUUID->"462798a8-26a4-4ec3-b9f2-\
+959bad514d21"],
+
+Cell[BoxData[
+ RowBox[{"grafcom", "=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"dadoscom", ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<\!\(\*StyleBox[\"t\",FontSlant->\"Italic\"]\)\>\"", ",", 
+       "\"\<\!\(\*StyleBox[\"y\",FontSlant->\"Italic\"]\)(\!\(\*StyleBox[\"t\"\
+,FontSlant->\"Italic\"]\))\>\""}], "}"}]}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.8439236163067923`*^9, 3.8439236274283123`*^9}, 
+   3.874410118605178*^9},ExpressionUUID->"f6822afa-0143-43a9-afc2-\
+b304a47a62f6"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"2184bb19-e2a9-4543-bf3c-eceaa64ba3b6"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Vamos tentar modelar o movimento sob resist\[EHat]ncia do ar, supondo que \
+se trate de um atrito viscoso, descrito pela equa\[CCedilla]\[ATilde]o \
+diferencial ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["d", "2"], "x"}], 
+      RowBox[{"d", " ", 
+       SuperscriptBox["t", "2"]}]], "+", 
+     RowBox[{"\[Gamma]", 
+      FractionBox[
+       RowBox[{"d", " ", "x"}], 
+       RowBox[{"d", " ", "t"}]]}], "+", 
+     RowBox[{
+      SubsuperscriptBox["\[Omega]", "0", "2"], "x"}]}], "=", "0"}], 
+   TraditionalForm]],ExpressionUUID->"2ebf9bbd-fe4e-4bf6-9f02-1437043ff67a"],
+ ", \nem que escrevemos ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "c664b7f0-245a-400f-bad7-c64dc6514cc5"],
+ " em vez de ",
+ Cell[BoxData[
+  FormBox["y", TraditionalForm]],ExpressionUUID->
+  "9b9ac34f-d82f-4c95-964e-20bf92853a3c"],
+ " para n\[ATilde]o induzir confus\[ATilde]o com o par\[AHat]metro ",
+ Cell[BoxData[
+  FormBox["\[Gamma]", TraditionalForm]],ExpressionUUID->
+  "41a886e6-5d31-4820-84cd-5ad6d25b5f72"],
+ ". Como vemos do gr\[AAcute]fico que o atrito \[EAcute] pequeno, podemos \
+impor a condi\[CCedilla]\[ATilde]o ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Gamma]", "<", 
+    RowBox[{
+     SubscriptBox["\[Omega]", "0"], "/", "2"}]}], TraditionalForm]],
+  ExpressionUUID->"8656b3e2-1a9c-4e6b-9efd-c792e4d28d92"],
+ " para evidenciar a presen\[CCedilla]a de oscila\[CCedilla]\[OTilde]es na \
+solu\[CCedilla]\[ATilde]o."
+}], "Text",
+ CellChangeTimes->{{3.843474416360097*^9, 3.843474448649557*^9}, {
+   3.843923752157063*^9, 3.8439237821603813`*^9}, {3.84392391243685*^9, 
+   3.843923932663686*^9}, {3.843924800318119*^9, 3.843924816119207*^9}, 
+   3.874410112125019*^9, {3.8744101438723583`*^9, 
+   3.874410144138996*^9}},ExpressionUUID->"43dcc0f1-bafa-473c-843b-\
+dfa27039c5a2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"eq", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "''"}], "[", "t", "]"}], "+", 
+     RowBox[{"\[Gamma]", "*", 
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"\[Omega]0", "^", "2"}], "*", 
+      RowBox[{"x", "[", "t", "]"}]}]}], "\[Equal]", "0"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Assuming", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[Omega]0", ">", "0"}], ",", 
+      RowBox[{"\[Gamma]", ">", "0"}], ",", 
+      RowBox[{"\[Gamma]", "<", 
+       RowBox[{"\[Omega]0", "/", "2"}]}]}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"DSolve", "[", 
+      RowBox[{"eq", ",", 
+       RowBox[{"x", "[", "t", "]"}], ",", "t"}], "]"}], "//", 
+     "FullSimplify"}]}], "]"}], " "}]}], "Input",
+ CellChangeTimes->{{3.843474469191414*^9, 3.843474471723112*^9}, {
+   3.8434750251477327`*^9, 3.843475031323228*^9}, {3.84355573292152*^9, 
+   3.843555733245181*^9}, 3.843584612679428*^9, {3.843923945433545*^9, 
+   3.8439240098403587`*^9}, {3.843924121621921*^9, 3.8439242218290043`*^9}, {
+   3.843924253502615*^9, 3.843924266397621*^9}, {3.843924307674839*^9, 
+   3.843924357537889*^9}, 3.8439247569995127`*^9, 
+   3.8744101575898523`*^9},ExpressionUUID->"8dc43626-09c3-44c3-a5a8-\
+98058b3a58e8"],
+
+Cell[TextData[{
+ "Da sa\[IAcute]da da fun\[CCedilla]\[ATilde]o ",
+ StyleBox["DSolve",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", temos uma solu\[CCedilla]\[ATilde]o da forma ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"x", "(", "t", ")"}], "=", 
+    RowBox[{"A", " ", 
+     SuperscriptBox["e", 
+      RowBox[{
+       RowBox[{"-", "\[Gamma]"}], " ", 
+       RowBox[{"t", "/", "2"}]}]], 
+     RowBox[{"cos", "(", 
+      RowBox[{
+       RowBox[{"\[Omega]", " ", "t"}], "+", "\[Phi]"}], ")"}]}]}], 
+   TraditionalForm]],ExpressionUUID->"c864f892-bf36-4796-8624-0817b9673345"],
+ ", com ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[Omega]", "2"], "=", 
+    RowBox[{
+     SubsuperscriptBox["\[Omega]", "0", "2"], "-", 
+     RowBox[{
+      SuperscriptBox["\[Gamma]", "2"], "/", "4"}]}]}], TraditionalForm]],
+  ExpressionUUID->"21cb8288-d83d-4391-bb18-2dcdf2d3556d"],
+ ". No pr\[OAcute]ximo slide, vamos buscar um ajuste dos dados a partir dessa \
+forma."
+}], "Text",
+ CellChangeTimes->{{3.8439247641674547`*^9, 3.843924794104656*^9}, {
+  3.843924854461179*^9, 3.843924918159336*^9}, {3.8439250755761003`*^9, 
+  3.84392510728996*^9}, {3.8439290116140137`*^9, 3.843929032538453*^9}, {
+  3.843929223654457*^9, 3.843929223980617*^9}, {3.8744113942055264`*^9, 
+  3.874411400123608*^9}},ExpressionUUID->"0734fb01-302f-475d-b860-\
+6ae51c3b24c8"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"b8cad7d2-e68b-423c-9e00-61e52454936d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"xcom", "=", 
+   RowBox[{
+    RowBox[{"A", "*", 
+     RowBox[{"Exp", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Gamma]"}], "*", 
+       RowBox[{"t", "/", "2"}]}], "]"}], "*", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"\[Omega]", "*", "t"}], "+", "\[Phi]"}], "]"}]}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"\[Omega]", "\[Rule]", " ", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{
+        RowBox[{"\[Omega]0", "^", "2"}], "-", 
+        RowBox[{
+         RowBox[{"\[Gamma]", "^", "2"}], "/", "4"}]}], "]"}]}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"parcom", "=", 
+  RowBox[{"FindFit", "[", 
+   RowBox[{"dadoscom", ",", "xcom", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"A", ",", " ", 
+        RowBox[{"-", "0.2"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Omega]0", ",", 
+        RowBox[{"2", "*", 
+         RowBox[{"\[Pi]", "/", 
+          RowBox[{"(", 
+           RowBox[{"8.1", "/", "6"}], ")"}]}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Phi]", ",", " ", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Gamma]", ",", "0.01"}], "}"}]}], "}"}], ",", "t"}], "]"}], 
+  "  "}]}], "Input",
+ CellChangeTimes->{
+  3.843924215966341*^9, {3.8439275110909643`*^9, 3.84392754965619*^9}, {
+   3.84392806740654*^9, 3.84392810528551*^9}, {3.843928306671299*^9, 
+   3.843928341441764*^9}, {3.843929215487452*^9, 3.843929232160886*^9}, {
+   3.844001918541465*^9, 3.844001946832418*^9}, 
+   3.8744114032974043`*^9},ExpressionUUID->"2fa5502e-6f79-46a5-b225-\
+753061bd8471"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ajustecom", "=", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"xcom", "/.", "parcom"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", "Thick"}], "}"}]}]}], "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{"{", 
+    RowBox[{"grafcom", ",", "ajustecom"}], "}"}], "]"}], " "}]}], "Input",
+ CellChangeTimes->{{3.8439282890790777`*^9, 3.843928301621613*^9}, {
+  3.8439283668224688`*^9, 3.8439283720764647`*^9}, {3.84400192424502*^9, 
+  3.844001924482448*^9}, {3.844004797334774*^9, 3.844004811941309*^9}, {
+  3.844080668746379*^9, 3.8440806734699697`*^9}, {3.874411404963924*^9, 
+  3.8744114146930857`*^9}},ExpressionUUID->"6222b715-6ad7-473f-ba3c-\
+01b8e18c17df"],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"4993fa55-f76d-47bf-8cb6-e843c0756681"],
+
+Cell[TextData[{
+ "Vamos comparar os valores de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "57e280b1-eabf-4b87-9a89-fd3f26a20455"],
+ " extra\[IAcute]dos a partir dos dados com e sem atrito relevante:"
+}], "Text",
+ CellChangeTimes->{{3.843928639145109*^9, 3.8439286557500896`*^9}, {
+  3.843928699894526*^9, 3.843928737327956*^9}, {3.84392925592019*^9, 
+  3.843929282312172*^9}},ExpressionUUID->"e214db19-1496-4d51-a1f7-\
+7969f7227bfd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+    RowBox[{"\[Omega]0", "/.", "parcom"}], ",", "\"\<  \>\"", ",", 
+    RowBox[{"\[Omega]0", "/.", "parsem"}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.843928425727282*^9, 3.843928460415159*^9}, {
+   3.84392866148531*^9, 3.8439286788239307`*^9}, {3.843929286564561*^9, 
+   3.843929291909398*^9}, 
+   3.874411503009856*^9},ExpressionUUID->"ff6043c5-751c-43d8-9d3a-\
+2bfb2a51ac3c"],
+
+Cell[TextData[{
+ "Os valores parecem bastante pr\[OAcute]ximos, mas para afirmar que s\
+\[ATilde]o compat\[IAcute]veis precisamos conhecer as estimativas de erros \
+desses valores segundo os ajustes. Para isso, precisamos executar os ajustes \
+n\[ATilde]o com a fun\[CCedilla]\[ATilde]o ",
+ StyleBox["FindFit",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", mas sim com a fun\[CCedilla]\[ATilde]o ",
+ StyleBox[ButtonBox["NonlinearModelFit",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/NonlinearModelFit.html"], 
+    None},
+  ButtonNote->
+   "https://reference.wolfram.com/language/ref/NonlinearModelFit.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", que armazena um conjunto maior de informa\[CCedilla]\[OTilde]es."
+}], "Text",
+ CellChangeTimes->{{3.843554631817163*^9, 3.843554635584847*^9}, {
+  3.8435546686151247`*^9, 3.843554716416524*^9}, {3.843554747398438*^9, 
+  3.8435548001515827`*^9}, {3.843554871729467*^9, 3.8435548970050592`*^9}, {
+  3.843555047760054*^9, 3.843555047763953*^9}, {3.843629779176505*^9, 
+  3.843629874527851*^9}, {3.843929060292428*^9, 3.843929071395833*^9}, {
+  3.8439297200532303`*^9, 3.8439298113350277`*^9}, {3.843929843941263*^9, 
+  3.8439298439467077`*^9}, {3.8439305750909967`*^9, 
+  3.8439305964548883`*^9}},ExpressionUUID->"a97cb5ea-ffea-4edb-a82b-\
+330d6e728c69"],
+
+Cell["Primeiro examinamos os dados sem atrito:", "Text",
+ CellChangeTimes->{{3.843930237151082*^9, 
+  3.843930244777725*^9}},ExpressionUUID->"7a648e58-9099-4ea1-a166-\
+bb78948bb4cf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"nlmsem", "=", 
+    RowBox[{"NonlinearModelFit", "[", 
+     RowBox[{"dadossem", ",", 
+      RowBox[{"A", "*", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         RowBox[{"\[Omega]0", "*", "t"}], "+", "\[Phi]"}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"A", ",", " ", 
+          RowBox[{"-", "0.2"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Omega]0", ",", 
+          RowBox[{"2", "*", 
+           RowBox[{"\[Pi]", "/", 
+            RowBox[{"(", 
+             RowBox[{"8.1", "/", "6"}], ")"}]}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Phi]", ",", " ", "0"}], "}"}]}], "}"}], ",", "t"}], 
+     "]"}]}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nlmsem", "[", "\"\<BestFitParameters\>\"", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Retorna", " ", "as", " ", "estimativas", " ", "para", " ", "os", " ", 
+    "par\[AHat]metros"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nlmsem", "[", "\"\<ParameterErrors\>\"", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Retorna", " ", "os", " ", "erros", " ", "estimados", " ", "para", " ", 
+    "os", " ", "par\[AHat]metros"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nlmsem", "[", "\"\<AdjustedRSquared\>\"", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Retorna", " ", "a", " ", "estimativa", " ", "de", " ", "qualidade", " ", 
+    "do", " ", "ajuste"}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.843929582825364*^9, 3.843929619152479*^9}, 
+   3.843929649910851*^9, {3.8439299445463142`*^9, 3.843929944729555*^9}, {
+   3.843930021541589*^9, 3.8439300437640057`*^9}, {3.8439301878971367`*^9, 
+   3.843930210060666*^9}, {3.8439306052970877`*^9, 3.8439306438519707`*^9}, {
+   3.844004835660123*^9, 3.8440048480051947`*^9}, 3.874411508545287*^9, {
+   3.874411884361792*^9, 3.874411894947154*^9}, {3.874411949313403*^9, 
+   3.8744119611529083`*^9}},ExpressionUUID->"78f112d1-48d1-4fbc-95a0-\
+a80eba6b5ed2"],
+
+Cell[TextData[{
+ "Observe que os par\[AHat]metros do ajuste s\[ATilde]o os mesmos de antes, \
+mas agora podemos visualizar os erros lendo a propriedade \
+\[OpenCurlyDoubleQuote]",
+ StyleBox["ParameterErrors",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ "\[CloseCurlyDoubleQuote]."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.843929962019717*^9, 3.84392999646623*^9}, {
+  3.874411755017618*^9, 3.874411772724432*^9}, {3.874411872356126*^9, 
+  3.874411876218622*^9}},ExpressionUUID->"9d2780dc-634c-4f09-b6d5-\
+ec04e164b65e"],
+
+Cell["Agora vamos examinar os dados com atrito:", "Text",
+ CellChangeTimes->{{3.843930250763651*^9, 
+  3.843930257006469*^9}},ExpressionUUID->"d821079d-1cce-4b82-9a44-\
+c173069e9a1f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"nlmcom", "=", 
+    RowBox[{"NonlinearModelFit", "[", 
+     RowBox[{"dadoscom", ",", "xcom", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"A", ",", " ", 
+          RowBox[{"-", "0.2"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Omega]0", ",", 
+          RowBox[{"2", "*", 
+           RowBox[{"\[Pi]", "/", 
+            RowBox[{"(", 
+             RowBox[{"8.1", "/", "6"}], ")"}]}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Phi]", ",", " ", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Gamma]", ",", "0.01"}], "}"}]}], "}"}], ",", "t"}], 
+     "]"}]}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{"nlmcom", "[", "\"\<BestFitParameters\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"nlmcom", "[", "\"\<ParameterErrors\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"nlmcom", "[", "\"\<AdjustedRSquared\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.843554953809574*^9, 3.843555024619767*^9}, {
+   3.84392907414154*^9, 3.843929160454048*^9}, {3.843929384126192*^9, 
+   3.843929484770418*^9}, {3.843929588280398*^9, 3.843929594693468*^9}, {
+   3.843930220612734*^9, 3.8439302230021877`*^9}, {3.8439306100105057`*^9, 
+   3.843930612577417*^9}, {3.844002017786859*^9, 3.84400203723236*^9}, {
+   3.844002138622163*^9, 3.844002175253188*^9}, 
+   3.874411516474752*^9},ExpressionUUID->"820c2db8-92b3-4549-a805-\
+7666826717af"],
+
+Cell[TextData[{
+ "Ambas as estimativas de erro para ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],ExpressionUUID->
+  "211fd1ed-f962-4a60-a840-224c2c540d91"],
+ " s\[ATilde]o muito menores do que a diferen\[CCedilla]a entre as \
+estimativas para o pr\[OAcute]prio ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],ExpressionUUID->
+  "607c14e6-0fd6-484f-81a5-05a0d0c4564f"],
+ ". Isso sugere que nosso modelo pode ser melhorado!"
+}], "Text",
+ CellChangeTimes->{{3.843930435984741*^9, 
+  3.843930502325388*^9}},ExpressionUUID->"ca8f6a12-9f6c-4e7e-a40c-\
+298f8d13088f"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"2265f18e-890e-4b10-8aed-719ffb1d5ccb"],
+
+Cell[TextData[{
+ "Vamos ent\[ATilde]o investigar um modelo que envolve um atrito proporcional \
+ao quadrado da velocidade. A equa\[CCedilla]\[ATilde]o diferencial agora \
+\[EAcute] ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["d", "2"], "x"}], 
+      RowBox[{"d", " ", 
+       SuperscriptBox["t", "2"]}]], "+", 
+     RowBox[{"\[Rho]", 
+      FractionBox[
+       RowBox[{"d", " ", "x"}], 
+       RowBox[{"d", " ", "t"}]], 
+      RowBox[{"\[LeftBracketingBar]", 
+       FractionBox[
+        RowBox[{"d", " ", "x"}], 
+        RowBox[{"d", " ", "t"}]], "\[RightBracketingBar]"}]}], "+", 
+     RowBox[{
+      SubsuperscriptBox["\[Omega]", "0", "2"], "x"}]}], "=", "0"}], 
+   TraditionalForm]],ExpressionUUID->"fa5b2cb5-bf9f-417b-bec4-789fb83b501e"],
+ ", que deve ser resolvida numericamente. No entanto, queremos poder ajustar \
+os par\[AHat]metros \[Rho] e ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],ExpressionUUID->
+  "7c012929-29ae-46c2-9c4e-f14cf3b69e58"],
+ ", al\[EAcute]m da posi\[CCedilla]\[ATilde]o e da velocidade iniciais. Para \
+isso, \[EAcute] preciso resolver a equa\[CCedilla]\[ATilde]o diferencial com \
+a fun\[CCedilla]\[ATilde]o ",
+ StyleBox[ButtonBox["ParametricNDSolve",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/ParametricNDSolve.html"], 
+    None},
+  ButtonNote->
+   "https://reference.wolfram.com/language/ref/ParametricNDSolve.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.84393082598948*^9, 3.843930827518505*^9}, {
+  3.843931302776829*^9, 3.843931329214821*^9}, {3.843931448015914*^9, 
+  3.843931455174438*^9}, {3.8439316485591917`*^9, 3.843931757718684*^9}, {
+  3.844004150101653*^9, 3.84400426326521*^9}, {3.844004298382189*^9, 
+  3.84400429838899*^9}},ExpressionUUID->"5ef29a2a-0330-4988-8c52-\
+173723bc616f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"eq2", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "''"}], "[", "t", "]"}], "+", 
+     RowBox[{"\[Rho]", "*", 
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "*", 
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{"x", "'"}], "[", "t", "]"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"\[Omega]0", "^", "2"}], "*", 
+      RowBox[{"x", "[", "t", "]"}]}]}], "\[Equal]", "0"}]}], ";", " ", 
+  RowBox[{"sol2", "=", 
+   RowBox[{"ParametricNDSolve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"eq2", ",", 
+       RowBox[{
+        RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x0"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "v0"}]}], "}"}], 
+     ",", "x", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "x0", ",", "v0", ",", "\[Omega]0"}], "}"}]}], 
+    "]"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Podemos", " ", "invocar", " ", "a", " ", "solu\[CCedilla]\[ATilde]o", 
+     " ", "como", " ", 
+     RowBox[{
+      RowBox[{"x", "[", 
+       RowBox[{"\[Rho]", ",", "x0", ",", "v0", ",", "\[Omega]0"}], "]"}], "[",
+       "t", "]"}]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.8439317592897377`*^9, 3.843931818880179*^9}, {
+   3.844002641986162*^9, 3.844002716520341*^9}, {3.844002746692165*^9, 
+   3.8440028153398046`*^9}, {3.844002849441844*^9, 3.844002874459826*^9}, {
+   3.8440031229987497`*^9, 3.8440031480934267`*^9}, {3.844003320492034*^9, 
+   3.84400332057498*^9}, 
+   3.87441204688034*^9},ExpressionUUID->"2503ce77-2476-472c-8b33-\
+7438beba6a9a"],
+
+Cell[TextData[{
+ "A solu\[CCedilla]\[ATilde]o param\[EAcute]trica acima pode ser invocada com \
+a sintaxe ",
+ StyleBox["x[\[Rho],x0,v0,\[Omega]0][t]/.sol2:",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"]
+}], "ItemParagraph",
+ CellChangeTimes->{{3.844004319010014*^9, 
+  3.8440043766540327`*^9}},ExpressionUUID->"bcf2d307-2526-49f6-ac21-\
+311c555b0324"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", 
+       RowBox[{"0", ",", "1", ",", "0", ",", 
+        RowBox[{"2", "*", "\[Pi]"}]}], "]"}], "[", "t", "]"}], "/.", "sol2"}],
+     ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}]}], "]"}], " "}]], "Input",
+ CellMargins:>
+  Dynamic[{{
+    0.185 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+     FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+    0.009261144849884526 FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}], 
+     0.017364629099307156` FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}],
+ CellChangeTimes->{{3.844004395498674*^9, 3.8440044202277107`*^9}, 
+   3.874412048711548*^9},ExpressionUUID->"fdcc750f-8862-48ed-b774-\
+741f425718ca"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"0e4ed51b-6e4d-4bf7-b9e4-9aecccabb67e"],
+
+Cell["Efetuamos agora o ajuste:", "Text",
+ CellChangeTimes->{{3.8744121771271667`*^9, 
+  3.874412182702965*^9}},ExpressionUUID->"c9c00113-16e4-4112-9e3f-\
+492ba7ac9112"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"parcom2", "=", 
+  RowBox[{"FindFit", "[", 
+   RowBox[{"dadoscom", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", 
+       RowBox[{"\[Rho]", ",", "x0", ",", "v0", ",", "\[Omega]0"}], "]"}], "[",
+       "t", "]"}], "/.", "sol2"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Rho]", ",", "0.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x0", ",", " ", 
+        RowBox[{"-", "0.2"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Omega]0", ",", 
+        RowBox[{"2", "*", 
+         RowBox[{"\[Pi]", "/", 
+          RowBox[{"(", 
+           RowBox[{"8.1", "/", "6"}], ")"}]}]}]}], "}"}]}], "}"}], ",", "t"}],
+    "]"}], "  "}]], "Input",
+ CellChangeTimes->{
+  3.8440027570318823`*^9, {3.8440031659738293`*^9, 3.844003267579144*^9}, 
+   3.874412140525572*^9},ExpressionUUID->"3552e82b-3b73-4496-a45e-\
+befb51d16f29"],
+
+Cell["\<\
+Fazemos o gr\[AAcute]fico da fun\[CCedilla]\[ATilde]o de ajuste com os par\
+\[AHat]metros obtidos e comparamos com os resultados obtidos supondo atrito \
+linear na velocidade:\
+\>", "Text",
+ CellChangeTimes->{{3.874412201393567*^9, 
+  3.8744122413982964`*^9}},ExpressionUUID->"d909fff6-903f-4c09-a0a5-\
+01b79501c72e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ajustecom2", "=", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "[", 
+          RowBox[{"\[Rho]", ",", "x0", ",", "v0", ",", "\[Omega]0"}], "]"}], 
+         "[", "t", "]"}], "/.", "sol2"}], "/.", "parcom2"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Green", ",", "Dashed", ",", "Thick"}], "}"}]}]}], "]"}]}], 
+   ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{"figura", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{"{", 
+    RowBox[{"grafcom", ",", "ajustecom", ",", "ajustecom2"}], "}"}], "]"}], 
+  " "}]}], "Input",
+ CellChangeTimes->{{3.844003351001375*^9, 3.8440033953433027`*^9}, {
+   3.8440040678675632`*^9, 3.844004087576832*^9}, {3.844004880442568*^9, 
+   3.844004881913*^9}, {3.844080710844799*^9, 3.844080735310831*^9}, 
+   3.874412151055209*^9, {3.874412248102283*^9, 
+   3.8744122485334463`*^9}},ExpressionUUID->"358db909-44b1-4529-b71f-\
+37f44e6d882f"]
+}, Open  ]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"40fed88a-8620-47ef-b53c-b50de81b6b11"],
+
+Cell["\<\
+Na pr\[AAcute]tica n\[ATilde]o h\[AAcute] diferen\[CCedilla]a entre os gr\
+\[AAcute]ficos obtidos para atrito viscoso e para arraste. Isso decorre do \
+fato de que, em ambos os casos, o atrito \[EAcute] muito pequeno. \
+\>", "Text",
+ CellChangeTimes->{{3.844004981476076*^9, 
+  3.844005028444255*^9}},ExpressionUUID->"f20b05cf-ded6-4dde-ab38-\
+b35759e4ea5b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"nlmcom2", "=", 
+    RowBox[{"NonlinearModelFit", "[", 
+     RowBox[{"dadoscom", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x", "[", 
+         RowBox[{"\[Rho]", ",", "x0", ",", "v0", ",", "\[Omega]0"}], "]"}], 
+        "[", "t", "]"}], "/.", "sol2"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[Rho]", ",", "0.2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x0", ",", " ", 
+          RowBox[{"-", "0.2"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"v0", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Omega]0", ",", 
+          RowBox[{"2", "*", 
+           RowBox[{"\[Pi]", "/", 
+            RowBox[{"(", 
+             RowBox[{"8.1", "/", "6"}], ")"}]}]}]}], "}"}]}], "}"}], ",", 
+      "t"}], "]"}]}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{"nlmcom2", "[", "\"\<BestFitParameters\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"nlmcom2", "[", "\"\<ParameterErrors\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"nlmcom2", "[", "\"\<AdjustedRSquared\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.844005064283246*^9, 3.844005085910389*^9}, {
+  3.874412355604775*^9, 
+  3.874412356891122*^9}},ExpressionUUID->"a5944365-6ae0-4492-9e4b-\
+7b7f4c64bd4d"],
+
+Cell[TextData[{
+ "Note que os valores de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],ExpressionUUID->
+  "8c0fac5b-b7a2-410c-bc7a-3c0914571945"],
+ " previstos por ambos os tipos de atrito s\[ATilde]o compat\[IAcute]veis \
+entre si, dados os erros, e que as estimativas da qualidade do ajuste tamb\
+\[EAcute]m s\[ATilde]o muito semelhantes. No entanto, a literatura de din\
+\[AHat]mica de fluidos sugere que a aproxima\[CCedilla]\[ATilde]o de atrito \
+viscoso \[EAcute] inapropriada sempre que o ",
+ StyleBox["n\[UAcute]mero de Reynolds",
+  FontVariations->{"Underline"->True}],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["R", "e"], TraditionalForm]],ExpressionUUID->
+  "f258a985-ca17-4d29-a9f2-bd6319700332"],
+ " do problema \[EAcute] muito maior do que 1. Esse n\[UAcute]mero \[EAcute] \
+definido como ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["R", "e"], "=", 
+    RowBox[{"v", " ", 
+     RowBox[{"L", "/", " ", "\[Eta]"}]}]}], TraditionalForm]],ExpressionUUID->
+  "17401657-784d-42d5-97cf-026777250103"],
+ ", sendo ",
+ Cell[BoxData[
+  FormBox["v", TraditionalForm]],ExpressionUUID->
+  "d318f198-23de-4f1d-9477-18dc8f8378b5"],
+ " a velocidade do objeto, ",
+ Cell[BoxData[
+  FormBox["L", TraditionalForm]],ExpressionUUID->
+  "24598b39-310e-4c0c-8c4b-2dd84a259407"],
+ " sua escala de comprimento caracter\[IAcute]stica e \[Eta] a viscosidade \
+cin\[EAcute]tica do meio. Para o experimento que analisamos, podemos tomar ",
+ Cell[BoxData[
+  FormBox["v", TraditionalForm]],ExpressionUUID->
+  "f18d3790-1941-473e-8b6b-37568e690ff7"],
+ " como a maior velocidade atingida pelo tablet ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"\[LeftBracketingBar]", 
+      RowBox[{
+       SubscriptBox["\[Omega]", "0"], "A"}], "\[RightBracketingBar]"}], 
+     "\[TildeEqual]", "0.9"}]}], TraditionalForm]],ExpressionUUID->
+  "e87449b5-dfb2-461e-849b-1bc6d363839e"],
+ " m/s), ",
+ Cell[BoxData[
+  FormBox["L", TraditionalForm]],ExpressionUUID->
+  "033034ee-7f70-4096-814c-bb7f6466bf2c"],
+ " como a raiz quadrada da \[AAcute]rea do peda\[CCedilla]o de \
+papel\[ATilde]o (19 cm) e, para o ar, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Eta]", "=", 
+    RowBox[{"15", "\[Times]", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "6"}]], " "}]}], TraditionalForm]],ExpressionUUID->
+  "5a8f487e-b1cc-43b8-9c16-e3cc59875164"],
+ "m",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["", "2"], TraditionalForm]],ExpressionUUID->
+  "b8a4587f-bfbf-44b2-9564-9ecf7fbd43ae"],
+ "/s. Temos ent\[ATilde]o ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["R", "e"], "\[TildeEqual]", "11000"}], TraditionalForm]],
+  ExpressionUUID->"4735957b-6d21-4758-829d-de38db497b67"],
+ ", o que indica que o atrito viscoso \[EAcute], fundamentalmente, uma m\
+\[AAcute] aproxima\[CCedilla]\[ATilde]o."
+}], "Text",
+ CellChangeTimes->{{3.844005127457415*^9, 3.844005179634162*^9}, {
+  3.844005287275539*^9, 3.844005337511524*^9}, {3.844005464812276*^9, 
+  3.844005531733382*^9}, {3.844005996842684*^9, 3.844006286022702*^9}, {
+  3.844006316511149*^9, 3.844006410002654*^9}, {3.844006449287509*^9, 
+  3.844006511811968*^9}, {3.844242508063429*^9, 
+  3.8442425084006023`*^9}},ExpressionUUID->"56238ecd-d525-448a-9ca7-\
+3ac56c7cee32"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"8865992e-5aaa-48b7-babe-ceabf43bf2e3"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Por que os valores de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "fdb98ea1-87c3-468c-9691-71b2de06071e"],
+ " previstos por ambos os modelos de atrito s\[ATilde]o compat\[IAcute]veis \
+entre si mas incompat\[IAcute]veis com aquele previsto a partir dos dados sem \
+atrito?"
+}], "Text",
+ CellChangeTimes->{{3.844070009958798*^9, 
+  3.84407008074306*^9}},ExpressionUUID->"9d494f41-a3ae-4c7f-8318-\
+7ba1a29367dc"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Lembre que ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Omega]", "0"], "=", 
+    SqrtBox[
+     RowBox[{"k", "/", "m"}]]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4cb5c197-6e1c-41a4-bd21-18258509a54c"],
+ ", sendo ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "2b8375d4-92fd-4992-b0eb-47cabf9f6216"],
+ " a constante el\[AAcute]stica efetiva do sistema e ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "53253cf4-ef76-4102-9c85-f2971bfd7cdb"],
+ " a massa do oscilador. O conjunto de molas \[EAcute] o mesmo nos dois \
+casos, de modo que ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "93d85ab9-58f4-4763-a30e-8139fe919eac"],
+ " n\[ATilde]o muda e conclu\[IAcute]mos que a massa \[EAcute] que deve ter \
+mudado. Poder\[IAcute]amos pensar que a presen\[CCedilla]a do papel\[ATilde]o \
+aumenta a massa, mas no experimento sem atrito o papel\[ATilde]o j\[AAcute] \
+estava l\[AAcute], apoiado na parte de tr\[AAcute]s do tablet e, portanto, \
+oculto no primeiro v\[IAcute]deo. "
+}], "Text",
+ CellChangeTimes->{{3.8440701080700397`*^9, 
+  3.844070333666588*^9}},ExpressionUUID->"daee21ec-997d-453b-a3aa-\
+b530ec20aa83"],
+
+Cell[TextData[{
+ "No entanto, h\[AAcute] uma massa \[OpenCurlyDoubleQuote]oculta\
+\[CloseCurlyDoubleQuote] no problema sem atrito: a massa de ar deslocada pelo \
+movimento do papel\[ATilde]o. A \[AAcute]rea do papel\[ATilde]o \[EAcute] de \
+360 ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["cm", "2"], TraditionalForm]],ExpressionUUID->
+  "8e2831a7-f691-4655-9338-4bc679d376c6"],
+ ", e seu deslocamento m\[AAcute]ximo \[EAcute] de cerca de 40 cm, de modo \
+que o volume de ar deslocado \[EAcute] da ordem de ",
+ Cell[BoxData[
+  FormBox["14000", TraditionalForm]],ExpressionUUID->
+  "edc8b668-f4c8-4361-aab2-5781b06ba25a"],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["cm", "3"], TraditionalForm]],ExpressionUUID->
+  "c99cc3f8-0739-4423-acf1-b3003bf18be5"],
+ ". Como a densidade do ar \[EAcute] de cerca de ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1.2", "\[Times]", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "3"}]]}], TraditionalForm]],ExpressionUUID->
+  "3687a35b-2749-4108-9b04-b1736e879345"],
+ " g/",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["cm", "3"], TraditionalForm]],ExpressionUUID->
+  "246eafdb-db45-41ae-a475-161db8738752"],
+ ", a massa total de ar deslocada \[EAcute] da ordem de 14 gramas, ou 4% da \
+massa do tablet (356 g). A partir da raz\[ATilde]o entre os valores estimados \
+de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", "0"], TraditionalForm]],ExpressionUUID->
+  "4aaa5cae-aced-4874-9efa-cc821158978f"],
+ " sem e com atrito, obtemos uma massa \[OpenCurlyDoubleQuote]adicional\
+\[CloseCurlyDoubleQuote] de ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"4.65", "/", "4.60"}], ")"}], "2"], "-", "1"}], "=", "2"}], 
+   TraditionalForm]],ExpressionUUID->"4f57827d-d143-4a05-869f-6c43de023483"],
+ "% da massa do tablet, da mesma ordem de grandeza da massa de ar deslocada. \
+"
+}], "Text",
+ CellChangeTimes->{{3.844070340045916*^9, 3.8440703612175417`*^9}, {
+  3.844070447990333*^9, 3.844070658557132*^9}, {3.844070704764222*^9, 
+  3.844070749614984*^9}, {3.844078827410699*^9, 3.844079002732826*^9}, {
+  3.844080229992219*^9, 3.844080272042066*^9}, {3.8440803165930233`*^9, 
+  3.844080318077537*^9}},ExpressionUUID->"0c6b0430-b151-4276-991e-\
+653445c45674"]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"9ce72fc9-f647-41fe-91d6-414b3b141a87"],
+
+Cell[TextData[{
+ "Se quisermos exportar o \[UAcute]ltimo gr\[AAcute]fico exibido (que atribu\
+\[IAcute]mos \[AGrave] vari\[AAcute]vel ",
+ StyleBox["figura",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ "), basta utilizarmos a fun\[CCedilla]\[ATilde]o ",
+ StyleBox[ButtonBox["Export",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/Export.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/Export.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.844080785935403*^9, 3.8440808511846857`*^9}, {
+  3.844081051359322*^9, 
+  3.8440810552837553`*^9}},ExpressionUUID->"a3988b43-0ec7-4560-9c00-\
+ea5a75203ee3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<ajustecom.png\>\"", ",", "figura"}], "]"}]], "Input",
+ CellChangeTimes->{{3.844081060666593*^9, 
+  3.844081069504128*^9}},ExpressionUUID->"81942ebb-a99d-4bb9-88fc-\
+9e6e4bbf6df9"],
+
+Cell["\<\
+Um arquivo de nome \[OpenCurlyDoubleQuote]ajustecom.png\
+\[CloseCurlyDoubleQuote] deve ter sido criado na mesma pasta do notebook.\
+\>", "ItemParagraph",
+ CellMargins:>
+  Dynamic[{{
+    0.185 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+     0.029999999999999995` FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+    0.018413319420289852` FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}], 
+     0.03452493913043478 FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}],
+ CellChangeTimes->{{3.8440812553816833`*^9, 
+  3.8440813209087067`*^9}},ExpressionUUID->"aea377ba-c4ef-4235-9198-\
+5ddc02b692a0"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"30c6ccb5-317c-495b-ab56-7f191b2edc86"],
+
+Cell[CellGroupData[{
+
+Cell["Para a pr\[OAcute]xima aula", "Section",
+ CellChangeTimes->{{3.839333537446044*^9, 
+  3.839333542350568*^9}},ExpressionUUID->"22ca6e40-5203-4405-ab21-\
+c6777f1f153d"],
+
+Cell["\<\
+Fa\[CCedilla]am os exerc\[IAcute]cios na aba \[OpenCurlyDoubleQuote]11 de \
+outubro\[CloseCurlyDoubleQuote], cuja entrega pode ser feita at\[EAcute] \
+\[AGrave]s 23h55 do dia 17 de outubro.\
+\>", "Item",
+ CellChangeTimes->{{3.839333548032505*^9, 3.839333592379475*^9}, {
+  3.83933705919527*^9, 3.839337097534361*^9}, {3.840043887235896*^9, 
+  3.840043916024474*^9}, {3.840718628268528*^9, 3.840718628553227*^9}, {
+  3.8411646162952423`*^9, 3.841164642990443*^9}, {3.841264877437314*^9, 
+  3.8412648777960176`*^9}, {3.84166638996863*^9, 3.841666410701432*^9}, {
+  3.842346170755411*^9, 3.8423461872472258`*^9}, {3.8435534560057497`*^9, 
+  3.843553474522225*^9}, {3.844080338137369*^9, 3.844080371458786*^9}, {
+  3.874412443461521*^9, 
+  3.874412465495648*^9}},ExpressionUUID->"60f6e4f6-2c4b-47f6-9054-\
+2ac5149001f0"]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Slideshow Working",
+CellGrouping->Manual,
+WindowSize->{808, 866},
+WindowMargins->{{Automatic, 71}, {Automatic, 66}},
+TaggingRules->{
+ "PresenterSettings" -> {
+   "ShowNavigationBar" -> False, 
+    "SlideBreakStyles" -> {"Title", "Chapter", "Section"}, "ShowSlideBreaks" -> 
+    True, "Theme" -> {
+     "ThemeName" -> "Default", "FontSetName" -> "Default", "ColorSetName" -> 
+      "Default"}, "WindowSize" -> {808, 866}, 
+    "WindowMargins" -> {{746, 366}, {55, 114}}, "Dialogs" -> {}, 
+    "UserModifications" -> {{
+      "Input", CellMargins :> 
+       Dynamic[{{
+          0.185 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+           0.029999999999999995` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+          0.018413319420289852` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}], 
+           0.03452493913043478 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}]}, {
+      "InheritFromParent", FontSlant -> "Italic"}, {
+      "Text", CellMargins :> 
+       Dynamic[{{
+          0.185 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+          0.012407400000000002` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}], 
+           0.012407400000000002` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}]}}, 
+    "LastColorUsed" -> Dynamic[
+      CurrentValue[{StyleHints, "ColorSet", "Display2"}]]}, "TryRealOnly" -> 
+  False},
+CellContext->Notebook,
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->FrontEnd`FileName[{"PresenterTools"}, "Default.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"20cd96e3-60c2-439c-8449-cd887fb96403"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "SlideShowHeader"->{
+  Cell[580, 22, 136, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ae861ed8-5fa1-4088-84fd-2651cc7b368a",
+   CellTags->"SlideShowHeader"],
+  Cell[2160, 55, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ee3ea2a1-973b-4e9a-a704-0d8a3c30d1be",
+   CellTags->"SlideShowHeader"],
+  Cell[7093, 161, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"0d6bbe14-c226-415e-b1fc-fcf294444606",
+   CellTags->"SlideShowHeader"],
+  Cell[9181, 209, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"17774e00-e7a4-4e88-b623-1d0211c771fc",
+   CellTags->"SlideShowHeader"],
+  Cell[11864, 276, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"916aafb6-db56-46e9-abc4-ac7b00e07c2a",
+   CellTags->"SlideShowHeader"],
+  Cell[17770, 429, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"3d840658-e7d8-403c-867c-a584b277195f",
+   CellTags->"SlideShowHeader"],
+  Cell[20012, 485, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"2184bb19-e2a9-4543-bf3c-eceaa64ba3b6",
+   CellTags->"SlideShowHeader"],
+  Cell[24789, 621, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"b8cad7d2-e68b-423c-9e00-61e52454936d",
+   CellTags->"SlideShowHeader"],
+  Cell[27396, 696, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"4993fa55-f76d-47bf-8cb6-e843c0756681",
+   CellTags->"SlideShowHeader"],
+  Cell[35051, 894, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"2265f18e-890e-4b10-8aed-719ffb1d5ccb",
+   CellTags->"SlideShowHeader"],
+  Cell[40056, 1034, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"0e4ed51b-6e4d-4bf7-b9e4-9aecccabb67e",
+   CellTags->"SlideShowHeader"],
+  Cell[42772, 1115, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"40fed88a-8620-47ef-b53c-b50de81b6b11",
+   CellTags->"SlideShowHeader"],
+  Cell[47873, 1253, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"8865992e-5aaa-48b7-babe-ceabf43bf2e3",
+   CellTags->"SlideShowHeader"],
+  Cell[52187, 1372, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"9ce72fc9-f647-41fe-91d6-414b3b141a87",
+   CellTags->"SlideShowHeader"],
+  Cell[53939, 1421, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"30c6ccb5-317c-495b-ab56-7f191b2edc86",
+   CellTags->"SlideShowHeader"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"SlideShowHeader", 56965, 1494}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 136, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ae861ed8-5fa1-4088-84fd-2651cc7b368a",
+ CellTags->"SlideShowHeader"],
+Cell[719, 26, 449, 8, 299, "Title",ExpressionUUID->"92508663-47f1-4deb-9615-d2c271e8e453"],
+Cell[1171, 36, 952, 14, 143, "Subtitle",ExpressionUUID->"14f8f51b-58e9-4033-aea1-fd611ac95bb9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2160, 55, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ee3ea2a1-973b-4e9a-a704-0d8a3c30d1be",
+ CellTags->"SlideShowHeader"],
+Cell[2285, 59, 623, 10, 114, "Section",ExpressionUUID->"7da6da63-6378-4f26-b58d-d42a7250afa4"],
+Cell[2911, 71, 1694, 29, 132, "Text",ExpressionUUID->"3b730a40-c305-44bd-95b8-df5440115120"]
+}, Open  ]],
+Cell[4620, 103, 1304, 27, 169, "Text",ExpressionUUID->"08c06edf-786a-4810-91b9-62b74aaaa484"],
+Cell[CellGroupData[{
+Cell[5949, 134, 696, 12, 60, "Input",ExpressionUUID->"8bfe1316-e2ad-448b-95e5-c8d6193b7cb4"],
+Cell[6648, 148, 430, 10, 95, "ItemParagraph",ExpressionUUID->"80ae9563-1c02-4b66-a481-5e606d8be694"]
+}, Closed]],
+Cell[7093, 161, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"0d6bbe14-c226-415e-b1fc-fcf294444606",
+ CellTags->"SlideShowHeader"],
+Cell[7218, 165, 963, 18, 162, "Text",ExpressionUUID->"bb6c48d3-962e-46a6-9d6a-ad3cb2b9b203"],
+Cell[CellGroupData[{
+Cell[8206, 187, 623, 10, 60, "Input",ExpressionUUID->"35e41775-dae6-460d-bcea-1818650dcecd"],
+Cell[8832, 199, 334, 7, 67, "ItemParagraph",ExpressionUUID->"c5e89106-e538-4d8e-9721-06a38d7b7a14"]
+}, Closed]],
+Cell[9181, 209, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"17774e00-e7a4-4e88-b623-1d0211c771fc",
+ CellTags->"SlideShowHeader"],
+Cell[9306, 213, 1003, 19, 162, "Text",ExpressionUUID->"0748b206-6537-42a5-be25-2fa6fe5f3073"],
+Cell[CellGroupData[{
+Cell[10334, 236, 1149, 28, 144, "Input",ExpressionUUID->"329aa24c-4d42-4612-8acc-6d4345704a4f"],
+Cell[11486, 266, 363, 7, 95, "ItemParagraph",ExpressionUUID->"d6af5964-e238-4ad6-b7c7-bbdb53c00954"]
+}, Closed]],
+Cell[11864, 276, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"916aafb6-db56-46e9-abc4-ac7b00e07c2a",
+ CellTags->"SlideShowHeader"],
+Cell[11989, 280, 2329, 60, 192, "Text",ExpressionUUID->"644a62b1-ac31-494c-8dfd-7ed730ae7044"],
+Cell[CellGroupData[{
+Cell[14343, 344, 1623, 35, 87, "Input",ExpressionUUID->"9a64b630-5e01-460e-8037-f58778c3c710"],
+Cell[CellGroupData[{
+Cell[15991, 383, 381, 10, 79, "Text",ExpressionUUID->"5f8426cc-ddbf-4a07-8f61-1415f3fdf650"],
+Cell[16375, 395, 1368, 30, 102, "Input",ExpressionUUID->"ac4ba23e-729c-4524-a64c-1c6a721d9c92"]
+}, Open  ]]
+}, Closed]],
+Cell[17770, 429, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"3d840658-e7d8-403c-867c-a584b277195f",
+ CellTags->"SlideShowHeader"],
+Cell[17895, 433, 532, 10, 102, "Text",ExpressionUUID->"ea9daf24-7658-4d4d-9dc9-9882aa98b880"],
+Cell[CellGroupData[{
+Cell[18452, 447, 525, 8, 60, "Input",ExpressionUUID->"ba8b8c62-f258-46b0-9893-3b8d1d653013"],
+Cell[18980, 457, 424, 10, 60, "Input",ExpressionUUID->"462798a8-26a4-4ec3-b9f2-959bad514d21"],
+Cell[19407, 469, 590, 13, 60, "Input",ExpressionUUID->"f6822afa-0143-43a9-afc2-b304a47a62f6"]
+}, Closed]],
+Cell[20012, 485, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"2184bb19-e2a9-4543-bf3c-eceaa64ba3b6",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[20159, 491, 1872, 48, 231, "Text",ExpressionUUID->"43dcc0f1-bafa-473c-843b-dfa27039c5a2"],
+Cell[CellGroupData[{
+Cell[22056, 543, 1326, 35, 85, "Input",ExpressionUUID->"8dc43626-09c3-44c3-a5a8-98058b3a58e8"],
+Cell[23385, 580, 1377, 37, 111, "Text",ExpressionUUID->"0734fb01-302f-475d-b860-6ae51c3b24c8"]
+}, Open  ]]
+}, Open  ]],
+Cell[24789, 621, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"b8cad7d2-e68b-423c-9e00-61e52454936d",
+ CellTags->"SlideShowHeader"],
+Cell[24914, 625, 1589, 45, 118, "Input",ExpressionUUID->"2fa5502e-6f79-46a5-b225-753061bd8471"],
+Cell[26506, 672, 887, 22, 102, "Input",ExpressionUUID->"6222b715-6ad7-473f-ba3c-01b8e18c17df"],
+Cell[27396, 696, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"4993fa55-f76d-47bf-8cb6-e843c0756681",
+ CellTags->"SlideShowHeader"],
+Cell[27521, 700, 521, 12, 72, "Text",ExpressionUUID->"e214db19-1496-4d51-a1f7-7969f7227bfd"],
+Cell[CellGroupData[{
+Cell[28067, 716, 447, 10, 60, "Input",ExpressionUUID->"ff6043c5-751c-43d8-9d3a-2bfb2a51ac3c"],
+Cell[28517, 728, 1391, 28, 169, "Text",ExpressionUUID->"a97cb5ea-ffea-4edb-a82b-330d6e728c69"],
+Cell[29911, 758, 182, 3, 49, "Text",ExpressionUUID->"7a648e58-9099-4ea1-a166-bb78948bb4cf"],
+Cell[CellGroupData[{
+Cell[30118, 765, 2054, 49, 254, "Input",ExpressionUUID->"78f112d1-48d1-4fbc-95a0-a80eba6b5ed2"],
+Cell[32175, 816, 537, 12, 95, "ItemParagraph",ExpressionUUID->"9d2780dc-634c-4f09-b6d5-ec04e164b65e"],
+Cell[32715, 830, 183, 3, 49, "Text",ExpressionUUID->"d821079d-1cce-4b82-9a44-c173069e9a1f"],
+Cell[CellGroupData[{
+Cell[32923, 837, 1457, 34, 162, "Input",ExpressionUUID->"820c2db8-92b3-4549-a805-7666826717af"],
+Cell[34383, 873, 629, 16, 109, "Text",ExpressionUUID->"ca8f6a12-9f6c-4e7e-a40c-298f8d13088f"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]],
+Cell[35051, 894, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"2265f18e-890e-4b10-8aed-719ffb1d5ccb",
+ CellTags->"SlideShowHeader"],
+Cell[35176, 898, 1946, 49, 201, "Text",ExpressionUUID->"5ef29a2a-0330-4988-8c52-173723bc616f"],
+Cell[CellGroupData[{
+Cell[37147, 951, 1683, 46, 129, "Input",ExpressionUUID->"2503ce77-2476-472c-8b33-7438beba6a9a"],
+Cell[38833, 999, 364, 9, 67, "ItemParagraph",ExpressionUUID->"bcf2d307-2526-49f6-ac21-311c555b0324"],
+Cell[39200, 1010, 841, 21, 60, "Input",ExpressionUUID->"fdcc750f-8862-48ed-b774-741f425718ca"]
+}, Closed]],
+Cell[40056, 1034, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"0e4ed51b-6e4d-4bf7-b9e4-9aecccabb67e",
+ CellTags->"SlideShowHeader"],
+Cell[40181, 1038, 169, 3, 42, "Text",ExpressionUUID->"c9c00113-16e4-4112-9e3f-492ba7ac9112"],
+Cell[CellGroupData[{
+Cell[40375, 1045, 957, 28, 87, "Input",ExpressionUUID->"3552e82b-3b73-4496-a45e-befb51d16f29"],
+Cell[41335, 1075, 327, 7, 109, "Text",ExpressionUUID->"d909fff6-903f-4c09-a0a5-01b79501c72e"],
+Cell[41665, 1084, 1092, 28, 144, "Input",ExpressionUUID->"358db909-44b1-4529-b71f-37f44e6d882f"]
+}, Open  ]],
+Cell[42772, 1115, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"40fed88a-8620-47ef-b53c-b50de81b6b11",
+ CellTags->"SlideShowHeader"],
+Cell[42897, 1119, 368, 7, 102, "Text",ExpressionUUID->"f20b05cf-ded6-4dde-ab38-b35759e4ea5b"],
+Cell[CellGroupData[{
+Cell[43290, 1130, 1302, 35, 162, "Input",ExpressionUUID->"a5944365-6ae0-4492-9e4b-7b7f4c64bd4d"],
+Cell[44595, 1167, 3263, 83, 379, "Text",ExpressionUUID->"56238ecd-d525-448a-9ca7-3ac56c7cee32"]
+}, Closed]],
+Cell[47873, 1253, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"8865992e-5aaa-48b7-babe-ceabf43bf2e3",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[48020, 1259, 515, 13, 102, "Text",ExpressionUUID->"9d494f41-a3ae-4c7f-8318-7ba1a29367dc"],
+Cell[CellGroupData[{
+Cell[48560, 1276, 1336, 34, 201, "Text",ExpressionUUID->"daee21ec-997d-453b-a3aa-b530ec20aa83"],
+Cell[49899, 1312, 2261, 56, 289, "Text",ExpressionUUID->"0c6b0430-b151-4276-991e-653445c45674"]
+}, Closed]]
+}, Closed]],
+Cell[52187, 1372, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"9ce72fc9-f647-41fe-91d6-414b3b141a87",
+ CellTags->"SlideShowHeader"],
+Cell[52312, 1376, 742, 19, 72, "Text",ExpressionUUID->"a3988b43-0ec7-4560-9c00-ea5a75203ee3"],
+Cell[CellGroupData[{
+Cell[53079, 1399, 233, 5, 60, "Input",ExpressionUUID->"81942ebb-a99d-4bb9-88fc-9e6e4bbf6df9"],
+Cell[53315, 1406, 609, 12, 101, "ItemParagraph",ExpressionUUID->"aea377ba-c4ef-4235-9198-5ddc02b692a0"]
+}, Closed]],
+Cell[53939, 1421, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"30c6ccb5-317c-495b-ab56-7f191b2edc86",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[54086, 1427, 172, 3, 57, "Section",ExpressionUUID->"22ca6e40-5203-4405-ab21-c6777f1f153d"],
+Cell[54261, 1432, 826, 14, 75, "Item",ExpressionUUID->"60f6e4f6-2c4b-47f6-9054-2ac5149001f0"]
+}, Open  ]]
+}
+]
+*)
+
