@@ -1,0 +1,2506 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     99598,       2498]
+NotebookOptionsPosition[     83657,       2247]
+NotebookOutlinePosition[     87999,       2333]
+CellTagsIndexPosition[     87920,       2328]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["", "SlideShowNavigationBar", "FirstSlide",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"ae861ed8-5fa1-4088-84fd-2651cc7b368a"],
+
+Cell["Introdu\[CCedilla]\[ATilde]o \[AGrave] F\[IAcute]sica Computacional I \
+(2022.2)", "Title",
+ CellChangeTimes->{
+  3.559948400406288*^9, {3.699269571766136*^9, 3.699269573578824*^9}, {
+   3.7099080105038958`*^9, 3.7099080108133383`*^9}, {3.727189496068931*^9, 
+   3.7271894962748613`*^9}, {3.83932299294512*^9, 3.839323000605739*^9}, {
+   3.87620986237956*^9, 
+   3.876209862473561*^9}},ExpressionUUID->"92508663-47f1-4deb-9615-\
+d2c271e8e453"],
+
+Cell["Aula 10: o mapa log\[IAcute]stico (parte 3); o mapa de H\[EAcute]non", \
+"Subtitle",
+ CellChangeTimes->{{3.699269582406044*^9, 3.699269584285553*^9}, {
+   3.8393232649484053`*^9, 3.839323284264048*^9}, 3.840031268565436*^9, {
+   3.8407028843722677`*^9, 3.840702924713172*^9}, {3.840714600599773*^9, 
+   3.8407146281949797`*^9}, {3.841157909295815*^9, 3.841157911477744*^9}, {
+   3.841480259563218*^9, 3.8414802737602463`*^9}, {3.8415945589945517`*^9, 
+   3.841594560546528*^9}, {3.842262188714292*^9, 3.8422622084045753`*^9}, {
+   3.842288735025601*^9, 3.8422887376233883`*^9}, {3.842288769619337*^9, 
+   3.8422887810036163`*^9}, {3.843294467913928*^9, 3.843294500290168*^9}, {
+   3.843553405919444*^9, 3.8435534093620787`*^9}, {3.843899024345776*^9, 
+   3.8438990498951845`*^9}, {3.844104755695139*^9, 3.8441047787114773`*^9}, {
+   3.845103660182572*^9, 3.8451036762035027`*^9}, {3.845196864256226*^9, 
+   3.845196866223578*^9}, {3.84521335376473*^9, 3.845213361459647*^9}, {
+   3.846057914868442*^9, 3.8460579231350527`*^9}, {3.846235828708374*^9, 
+   3.8462358302259893`*^9}, {3.846236430171523*^9, 3.846236433545587*^9}, {
+   3.8762098582545586`*^9, 
+   3.8762098585575633`*^9}},ExpressionUUID->"14f8f51b-58e9-4033-aea1-\
+fd611ac95bb9"]
+}, Open  ]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"40fed88a-8620-47ef-b53c-b50de81b6b11"],
+
+Cell["O mapa log\[IAcute]stico", "Section",
+ CellChangeTimes->{{3.844004981476076*^9, 3.844005028444255*^9}, {
+  3.845114897076255*^9, 
+  3.845114899662863*^9}},ExpressionUUID->"f20b05cf-ded6-4dde-ab38-\
+b35759e4ea5b"],
+
+Cell[TextData[{
+ "O mapa log\[IAcute]stico \[EAcute] definido pela equa\[CCedilla]\[ATilde]o \
+iterativa ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", 
+     RowBox[{"n", "+", "1"}]], "=", 
+    RowBox[{"f", "(", 
+     SubscriptBox["x", "n"], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "bb0d4dd3-30fc-4487-8a7e-e0c9a42f5e87"],
+ ", em que ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "x", ")"}], "=", 
+    RowBox[{"4", "\[Lambda]", " ", "x", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "x"}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "efc2eee7-8eac-4faf-9f8f-1841f944f854"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.84511593473853*^9, 3.8451160675895443`*^9}, {
+  3.8451240046530724`*^9, 3.8451240395491037`*^9}, {3.8451242047456007`*^9, 
+  3.84512436548533*^9}, {3.845124472848686*^9, 3.845124478492044*^9}, {
+  3.845124515707251*^9, 3.845124569246211*^9}, {3.845213375612213*^9, 
+  3.84521339778572*^9}, {3.846057932394002*^9, 
+  3.846057936175067*^9}},ExpressionUUID->"de408365-f028-430c-b5e2-\
+b4fa36941087"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "\[Lambda]_", "]"}], "[", "x_", "]"}], ":=", 
+  RowBox[{"4", "*", "\[Lambda]", "*", "x", "*", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "x"}], ")"}], "  "}]}]], "Input",
+ CellChangeTimes->{{3.845124570478941*^9, 3.845124572870122*^9}, {
+   3.8451276756926003`*^9, 3.8451276915597477`*^9}, {3.845127923386724*^9, 
+   3.84512792386327*^9}, {3.845129061090382*^9, 3.845129063986747*^9}, {
+   3.8453847728734913`*^9, 3.845384773792673*^9}, 3.845967355545012*^9, 
+   3.84596747338412*^9, 
+   3.876210417959196*^9},ExpressionUUID->"43fc7f6f-7580-43ef-b8ca-\
+5b32938b6139"],
+
+Cell[TextData[{
+ "Conclu\[IAcute]mos a aula passada mostrando o diagrama de \
+bifurca\[CCedilla]\[OTilde]es do mapa log\[IAcute]stico, ilustrando a cascata \
+de bifurca\[CCedilla]\[OTilde]es e nos perguntando o que ocorre na regi\
+\[ATilde]o em que ",
+ Cell[BoxData[
+  FormBox["\[Lambda]", TraditionalForm]],ExpressionUUID->
+  "72b60abc-61cd-4ef9-8bc8-b2f9667e11c7"],
+ " \[EAcute] maior do que cerca de 0.9. "
+}], "Text",
+ CellChangeTimes->{{3.845213464173011*^9, 3.84521349348944*^9}, {
+  3.8452136811962957`*^9, 3.845213717279002*^9}, {3.845213773582322*^9, 
+  3.845213804856577*^9}, {3.8456418085770903`*^9, 3.845641877730383*^9}, {
+  3.846057942586411*^9, 3.8460580196833487`*^9}, {3.846058167476076*^9, 
+  3.846058168521522*^9}},ExpressionUUID->"e482a0c1-661b-42e6-b8c1-\
+fcbbcf2ef1e9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetDirectory", "[", 
+    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], " "}]], "Input",
+ CellChangeTimes->{{3.845455662215506*^9, 3.845455667913639*^9}, 
+   3.8454571387524023`*^9, 
+   3.8459738791123857`*^9},ExpressionUUID->"b48c78c7-cd2c-4864-be1f-\
+e8da30b0dd39"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Import", "[", "\"\<bifurca1.png\>\"", "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.845457119097805*^9, 3.845457125607761*^9}, 
+   3.845973878390964*^9},ExpressionUUID->"b1c007fe-a17c-4133-bd66-\
+e0543c8f2fa7"],
+
+Cell[TextData[{
+ "Note que o padr\[ATilde]o para \[Lambda] entre ",
+ Cell[BoxData[
+  FormBox["0.72", TraditionalForm]],ExpressionUUID->
+  "4bcbd14a-30f6-44ba-b1b9-bfc402de8341"],
+ " (in\[IAcute]cio dos pontos, \[AGrave] esquerda) e ",
+ Cell[BoxData[
+  FormBox["0.862372", TraditionalForm]],ExpressionUUID->
+  "d6e328b8-8df8-45de-a827-c2c08186e4c6"],
+ " segue o que mostramos em um gr\[AAcute]fico anterior, a menos do fato de \
+que o ponto fixo que se torna inst\[AAcute]vel a partir de ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "0.75"}], TraditionalForm]],ExpressionUUID->
+  "b3a75ff6-0299-4682-b300-f98fd41539f7"],
+ " n\[ATilde]o mais aparece, por n\[ATilde]o ser alcan\[CCedilla]\[AAcute]vel \
+exceto partindo dele pr\[OAcute]prio. A \[OpenCurlyDoubleQuote]cascata\
+\[CloseCurlyDoubleQuote] de bifurca\[CCedilla]\[OTilde]es de per\[IAcute]odo \
+em ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Lambda]", "1"], "=", "0.75"}], TraditionalForm]],
+  ExpressionUUID->"818b9005-7ca4-4db5-8bd6-b8e4a5e35ec6"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Lambda]", "2"], "=", "0.862372"}], TraditionalForm]],
+  ExpressionUUID->"ce89fe06-c9e7-48db-900c-f9d593914cba"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Lambda]", "3"], "=", "0.886023"}], TraditionalForm]],
+  ExpressionUUID->"0230cd4b-d5d3-4a7e-8e02-09cd0ff844f2"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Lambda]", "4"], "=", "0.891102"}], TraditionalForm]],
+  ExpressionUUID->"856ab4a9-d473-4e91-897a-a814090d93df"],
+ " etc. \[EAcute] percept\[IAcute]vel, mas a partir da\[IAcute] fica dif\
+\[IAcute]cil visualizar as bifurca\[CCedilla]\[OTilde]es, embora elas estejam \
+l\[AAcute] e possam ser identificadas por uma investiga\[CCedilla]\[ATilde]o \
+cuidadosa. Essa investiga\[CCedilla]\[ATilde]o mostra que, quando ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]],ExpressionUUID->
+  "9e53b1f1-dfc2-411a-a35b-76a2e2c4c3fd"],
+ " \[EAcute] grande, a raz\[ATilde]o ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[Lambda]", "k"], "-", 
+      SubscriptBox["\[Lambda]", 
+       RowBox[{"k", "-", "1"}]]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[Lambda]", 
+       RowBox[{"k", "+", "1"}]], "-", 
+      SubscriptBox["\[Lambda]", "k"]}], ")"}]}], TraditionalForm]],
+  ExpressionUUID->"76439bcc-a1fb-415e-80c0-94b7fb593664"],
+ " das diferen\[CCedilla]as entre os valores consecutivos de ",
+ Cell[BoxData[
+  FormBox["\[Lambda]", TraditionalForm]],ExpressionUUID->
+  "ce2e2fba-0464-4211-a1a8-3b0c272d4e34"],
+ " na cascata de bifurca\[CCedilla]\[OTilde]es tende a um n\[UAcute]mero ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Delta]", "\[TildeEqual]", "4.6692"}], TraditionalForm]],
+  ExpressionUUID->"f8db6ba0-a2b1-4772-9cd3-2b656092da95"],
+ ", conhecido como primeira constante de Feigenbaum, e \[EAcute] universal, \
+no sentido de ser observada para ",
+ ButtonBox["qualquer mapa n\[ATilde]o linear com um m\[AAcute]ximo quadr\
+\[AAcute]tico",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Feigenbaum_constants"], None},
+  ButtonNote->"https://en.wikipedia.org/wiki/Feigenbaum_constants"],
+ "."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.845473966447196*^9, 3.845474338688672*^9}, {
+  3.845474675403378*^9, 3.845474848556645*^9}, {3.8454749032991953`*^9, 
+  3.845474929890607*^9}, {3.845474994849059*^9, 3.84547503693426*^9}, {
+  3.845476117762073*^9, 3.845476134726666*^9}, {3.845973824038975*^9, 
+  3.845973825477708*^9}},ExpressionUUID->"50797370-5549-4585-8167-\
+d9e7ca510cb3"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"86fe64e3-32e9-4779-a588-4d826466f4c9"],
+
+Cell["\<\
+Mas como sabemos que na regi\[ATilde]o em que h\[AAcute] uma grande densidade \
+de pontos no gr\[AAcute]fico o comportamento para um valor fixo de \[Lambda] \
+n\[ATilde]o corresponde simplesmente a ciclos com grande per\[IAcute]odo? \
+\>", "Text",
+ CellChangeTimes->{{3.845489934385297*^9, 
+  3.845490016183366*^9}},ExpressionUUID->"3effeb8f-90f5-41d6-be6a-\
+f5f5bc064e41"],
+
+Cell[TextData[{
+ "Para responder a essa pergunta, temos que estudar a ",
+ StyleBox["sensibilidade do mapa \[AGrave]s condi\[CCedilla]\[OTilde]es \
+iniciais",
+  FontVariations->{"Underline"->True}],
+ ": se duas trajet\[OAcute]rias que come\[CCedilla]am pr\[OAcute]ximas (por \
+exemplo, que partam de dois valores inicias de ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "82f36024-20cd-4ce2-ad17-1278a2642a40"],
+ " muito pr\[OAcute]ximos entre si) desviam-se cada vez mais uma da outra \
+\[AGrave] medida que se repetem as aplica\[CCedilla]\[OTilde]es do mapa, \
+diz-se que o sistema \[EAcute] ",
+ StyleBox["ca\[OAcute]tico",
+  FontVariations->{"Underline"->True}],
+ ". Para caracterizar esse desvio, estudamos o ",
+ StyleBox["expoente de Lyapunov",
+  FontVariations->{"Underline"->True}],
+ ", definido a seguir."
+}], "Text",
+ CellChangeTimes->{{3.8454758607436*^9, 3.845475875997452*^9}, {
+   3.845475935904211*^9, 3.845476031170603*^9}, {3.845489470500902*^9, 
+   3.845489547526639*^9}, {3.845489691359769*^9, 3.8454897262471724`*^9}, 
+   3.845489798214538*^9, 3.8454898777294817`*^9, {3.845490063782772*^9, 
+   3.84549021377952*^9}, {3.8459740249519777`*^9, 
+   3.8459740798183813`*^9}},ExpressionUUID->"16035f30-1eee-4728-9767-\
+c3bd5d1e06ab"],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"e2c3d1a2-ed5d-4284-9e67-018c17e6fd81"],
+
+Cell[TextData[{
+ "Considere duas itera\[CCedilla]\[OTilde]es \[OpenCurlyDoubleQuote]em \
+paralelo\[CloseCurlyDoubleQuote] do mapa log\[IAcute]stico, partindo de dois \
+valores pr\[OAcute]ximos ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "0"], TraditionalForm]],ExpressionUUID->
+  "b91bc4c9-0937-4cd7-bc00-c3546cc3ded8"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "0"], "+", 
+    SubscriptBox["\[Epsilon]", "0"]}], TraditionalForm]],ExpressionUUID->
+  "ad66109f-51a2-4309-b092-1834fd653d5c"],
+ ". Ap\[OAcute]s repetidas aplica\[CCedilla]\[OTilde]es do mapa, esses \
+valores s\[ATilde]o levados para ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],ExpressionUUID->
+  "3e50c91b-d061-4833-a9d9-8b083578e45e"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "1"], "+", 
+    SubscriptBox["\[Epsilon]", "1"]}], TraditionalForm]],ExpressionUUID->
+  "f07fa0fe-656f-43b9-913d-19a9b9d4cd1a"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],ExpressionUUID->
+  "bf02798a-52b9-4e4a-83d9-0e7d5d632c99"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "2"], "+", 
+    SubscriptBox["\[Epsilon]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "2c5a4096-4f70-4320-ae72-7957fadcaa9f"],
+ ", ..., ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "n"], TraditionalForm]],ExpressionUUID->
+  "7b7d2ea1-ae47-454c-a5a1-28e19bed09f3"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "n"], "+", 
+    SubscriptBox["\[Epsilon]", "n"]}], TraditionalForm]],ExpressionUUID->
+  "b60f8a9c-1f2b-4e83-a1b0-bdb10032adef"],
+ ", com ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "i"], "=", 
+    RowBox[{"f", "(", 
+     SubscriptBox["x", 
+      RowBox[{"i", "-", "1"}]], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "f0ae6b4b-3bd3-4b9a-ad3e-24ca7836f4a9"],
+ ". Supondo que todos os ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Epsilon]", "i"], TraditionalForm]],ExpressionUUID->
+  "ce183bae-4582-43bb-a0ff-4fab6e4a9c19"],
+ " sejam suficientemente pequenos, temos\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["x", "i"], "+", 
+     SubscriptBox["\[Epsilon]", "i"]}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", "(", 
+       RowBox[{
+        SubscriptBox["x", 
+         RowBox[{"i", "-", "1"}]], "+", 
+        SubscriptBox["\[Epsilon]", 
+         RowBox[{"i", "-", "1"}]]}], ")"}], "\[TildeEqual]", 
+      RowBox[{
+       RowBox[{"f", "(", 
+        SubscriptBox["x", 
+         RowBox[{"i", "-", "1"}]], ")"}], "+", 
+       RowBox[{
+        RowBox[{"f", "'"}], 
+        RowBox[{"(", 
+         SubscriptBox["x", 
+          RowBox[{"i", "-", "1"}]], ")"}], 
+        SubscriptBox["\[Epsilon]", 
+         RowBox[{"i", "-", "1"}]]}]}]}], "=", 
+     RowBox[{
+      SubscriptBox["x", "i"], "+", 
+      RowBox[{
+       RowBox[{"f", "'"}], 
+       RowBox[{"(", 
+        SubscriptBox["x", 
+         RowBox[{"i", "-", "1"}]], ")"}], 
+       SubscriptBox["\[Epsilon]", 
+        RowBox[{"i", "-", "1"}]]}]}]}]}], TraditionalForm]],ExpressionUUID->
+  "3ba43869-5cf9-468e-9871-fae82c492524"],
+ ",\[LineSeparator]de onde conclu\[IAcute]mos que\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Epsilon]", "i"], "=", 
+    RowBox[{
+     RowBox[{"f", "'"}], 
+     RowBox[{"(", 
+      SubscriptBox["x", 
+       RowBox[{"i", "-", "1"}]], ")"}], 
+     SubscriptBox["\[Epsilon]", 
+      RowBox[{"i", "-", "1"}]]}]}], TraditionalForm]],ExpressionUUID->
+  "f41f3945-37db-46fc-b253-20a6589e3791"],
+ ".\[LineSeparator]Ap\[OAcute]s ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "943ff83b-179a-43f9-98e3-37c4cc58eaba"],
+ " aplica\[CCedilla]\[OTilde]es do mapa, temos\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Epsilon]", "n"], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "'"}], 
+       RowBox[{"(", 
+        SubscriptBox["x", 
+         RowBox[{"n", "-", "1"}]], ")"}], 
+       SubscriptBox["\[Epsilon]", 
+        RowBox[{"n", "-", "1"}]]}], "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "'"}], 
+        RowBox[{"(", 
+         SubscriptBox["x", 
+          RowBox[{"n", "-", "1"}]], ")"}], 
+        RowBox[{"f", "'"}], 
+        RowBox[{"(", 
+         SubscriptBox["x", 
+          RowBox[{"n", "-", "2"}]], ")"}], 
+        SubscriptBox["\[Epsilon]", 
+         RowBox[{"n", "-", "2"}]]}], "=", 
+       RowBox[{
+        RowBox[{"\[CenterDot]", "\[CenterDot]", "\[CenterDot]"}], "=", 
+        RowBox[{
+         RowBox[{"f", "'"}], 
+         RowBox[{"(", 
+          SubscriptBox["x", 
+           RowBox[{"n", "-", "1"}]], ")"}], 
+         RowBox[{"f", "'"}], 
+         RowBox[{
+          RowBox[{"(", 
+           SubscriptBox["x", 
+            RowBox[{"n", "-", "2"}]], ")"}], "\[CenterDot]", "\[CenterDot]", 
+          "\[CenterDot]", 
+          RowBox[{"f", "'"}]}], 
+         RowBox[{"(", 
+          SubscriptBox["x", "0"], ")"}], 
+         SubscriptBox["\[Epsilon]", "0"]}]}]}]}]}], ","}], TraditionalForm]],
+  ExpressionUUID->"41d5f53a-3017-459b-9458-359dc865835b"],
+ "\[LineSeparator]ou seja,\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftBracketingBar]", 
+     RowBox[{
+      SubscriptBox["\[Epsilon]", "n"], "/", 
+      SubscriptBox["\[Epsilon]", "0"]}], "\[RightBracketingBar]"}], "=", 
+    RowBox[{
+     UnderoverscriptBox[
+      RowBox[{"\[Product]", " "}], 
+      RowBox[{"i", "=", "0"}], 
+      RowBox[{"n", "-", "1"}]], 
+     RowBox[{
+      RowBox[{"\[LeftBracketingBar]", 
+       RowBox[{
+        RowBox[{"f", "'"}], 
+        RowBox[{"(", 
+         SubscriptBox["x", "i"], ")"}]}], "\[RightBracketingBar]"}], 
+      "."}]}]}], TraditionalForm]],ExpressionUUID->
+  "6db8ca67-93f2-4af2-9cd3-f21593be9715"],
+ "\[LineSeparator]Em virtude da estrutura de produto do lado direito dessa \
+equa\[CCedilla]\[ATilde]o, esperamos que, para grandes valores de ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "5d13e4c8-4d0c-4fef-8fb9-3b9eeef55741"],
+ ", esse termo possa ser escrito na forma exponencial\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftBracketingBar]", 
+     RowBox[{
+      SubscriptBox["\[Epsilon]", "n"], "/", 
+      SubscriptBox["\[Epsilon]", "0"]}], "\[RightBracketingBar]"}], "=", 
+    RowBox[{
+     SuperscriptBox["e", 
+      RowBox[{"\[Alpha]", " ", "n"}]], "."}]}], TraditionalForm]],
+  ExpressionUUID->"9fdd850e-508d-4032-b985-d9d0aad85385"],
+ "\[LineSeparator]O ",
+ StyleBox["expoente de Lyapunov",
+  FontVariations->{"Underline"->True}],
+ " ",
+ Cell[BoxData[
+  FormBox["\[Alpha]", TraditionalForm]],ExpressionUUID->
+  "a504398b-3ea3-4f41-96b4-f6ce22bc7ecc"],
+ " \[EAcute] ent\[ATilde]o dado por\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Alpha]", "=", 
+    RowBox[{
+     UnderscriptBox["lim", 
+      RowBox[{"n", "\[Rule]", "\[Infinity]"}]], 
+     RowBox[{
+      FractionBox["1", "n"], 
+      UnderoverscriptBox[
+       RowBox[{"\[Sum]", " "}], 
+       RowBox[{"i", "=", "0"}], "n"], "ln", 
+      RowBox[{
+       RowBox[{"\[LeftBracketingBar]", 
+        RowBox[{
+         RowBox[{"f", "'"}], 
+         RowBox[{"(", 
+          SubscriptBox["x", "i"], ")"}]}], "\[RightBracketingBar]"}], 
+       "."}]}]}]}], TraditionalForm]],ExpressionUUID->
+  "826c6ef9-c786-4d14-b0e0-ac2f217a9dff"],
+ "\[LineSeparator]Se o expoente for negativo, as itera\[CCedilla]\[OTilde]es \
+paralelas se aproximam pela aplica\[CCedilla]\[ATilde]o do mapa. Se for \
+positivo, divergem uma da outra exponencialmente, revelando ent\[ATilde]o uma \
+depend\[EHat]ncia sens\[IAcute]vel das condi\[CCedilla]\[OTilde]es iniciais."
+}], "Text",
+ CellChangeTimes->{{3.845540758053306*^9, 3.845541304213867*^9}, {
+   3.8455414112927427`*^9, 3.845541473542316*^9}, {3.845541518330615*^9, 
+   3.845541681984345*^9}, {3.8455417192551928`*^9, 3.845541778191216*^9}, {
+   3.845541853064734*^9, 3.845541853628042*^9}, {3.845541893350465*^9, 
+   3.8455419913697767`*^9}, {3.845542185815316*^9, 3.8455422117282877`*^9}, {
+   3.845542347617919*^9, 3.845542387833849*^9}, {3.845542432015691*^9, 
+   3.845542490618723*^9}, {3.8455434942410603`*^9, 3.845543550273782*^9}, {
+   3.8455435947267942`*^9, 3.8455436453519173`*^9}, {3.8455436790345488`*^9, 
+   3.845543713593257*^9}, {3.845543924606874*^9, 3.845544008588134*^9}, 
+   3.8455442309957*^9, 3.8456271017837763`*^9, 
+   3.845974163823913*^9},ExpressionUUID->"b2ca4d3b-7bb7-4bdf-99b5-\
+d4a0ba3208ea"],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"ed8a4c5e-4160-4344-95e1-9735acf8ca9d"],
+
+Cell[TextData[{
+ "Antes de definirmos uma fun\[CCedilla]\[ATilde]o para calcular o expoente \
+de Lyapunov, vamos primeiro mostrar que \[EAcute] razo\[AAcute]vel supor a \
+forma exponencial adotada no slide anterior. Para isso, vamos definir uma fun\
+\[CCedilla]\[ATilde]o que, dado um valor do par\[AHat]metro ",
+ Cell[BoxData[
+  FormBox["\[Lambda]", TraditionalForm]],ExpressionUUID->
+  "8203e87a-50c6-4e11-8d39-b3cf3872e446"],
+ ", produz uma lista das diferen\[CCedilla]as entre duas itera\[CCedilla]\
+\[OTilde]es paralelas do mapa, iniciadas em ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "c4c57e8f-ba7e-4eea-8a57-a700510d080b"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "+", "\[Epsilon]"}], TraditionalForm]],ExpressionUUID->
+  "ec060ad4-f235-4366-bfcc-c9af917d5c80"],
+ ", repetidas por ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "a525bbc8-3dbb-49cf-9ebb-07ac97bd6fbb"],
+ " vezes, e finalmente tra\[CCedilla]a um gr\[AAcute]fico dos m\[OAcute]dulos \
+dessas diferen\[CCedilla]as (divididas por \[Epsilon]) em escala logar\
+\[IAcute]tmica:"
+}], "Text",
+ CellChangeTimes->{{3.845544247714367*^9, 3.845544347753755*^9}, {
+  3.8455449431778107`*^9, 3.8455450810688334`*^9}, {3.845545162935638*^9, 
+  3.845545171349823*^9}, {3.845545307666675*^9, 3.845545308757752*^9}, {
+  3.8455480077281313`*^9, 
+  3.845548030406809*^9}},ExpressionUUID->"91317753-ba71-48e1-81bd-\
+22e1c6c233ba"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"optam", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ImageSize", "\[Rule]", " ", "Large"}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", " ", 
+       RowBox[{"{", "\"\<Large\>\"", "}"}]}]}], "}"}]}], ";"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.846058375557028*^9, 3.846058405111308*^9}, {
+   3.846058465299769*^9, 3.8460584670000153`*^9}, 
+   3.876210640461195*^9},ExpressionUUID->"8f431743-8686-4bc0-b2b2-\
+febd29eb69d5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafdif", "[", 
+   RowBox[{"\[Lambda]_", ",", "x_", ",", "\[Epsilon]_", ",", "n_"}], "]"}], ":=",
+   " ", "\[IndentingNewLine]", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"xa", "=", "x"}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Valor", " ", "inicial", " ", "para", " ", "o", " ", "primeiro", " ", 
+      "mapa"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"xb", "=", 
+     RowBox[{"x", "+", "\[Epsilon]"}]}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Valor", " ", "inicial", " ", "para", " ", "o", " ", "segundo", " ", 
+      "mapa"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"ldif", "=", 
+     RowBox[{"{", "1", "}"}]}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Elemento", " ", "inicial", " ", "da", " ", "lista", " ", "de", " ", 
+      "diferen\[CCedilla]as"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "O", " ", "la\[CCedilla]o", " ", "Do", " ", "abaixo", " ", "implementa",
+        " ", "as", " ", "itera\[CCedilla]\[OTilde]es", " ", "em", " ", 
+       "paralelo"}], ",", " ", 
+      RowBox[{
+      "calculando", " ", "as", " ", "diferen\[CCedilla]as", " ", 
+       "ap\[OAcute]s", " ", "cada", " ", "aplica\[CCedilla]\[ATilde]o", " ", 
+       "do", " ", "mapa"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"xa", "=", 
+         RowBox[{
+          RowBox[{"f", "[", "\[Lambda]", "]"}], "[", "xa", "]"}]}], ";", " ", 
+        
+        RowBox[{"(*", " ", 
+         RowBox[{"Atualizando", " ", "o", " ", "primeiro", " ", "mapa"}], " ",
+          "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"xb", "=", 
+         RowBox[{
+          RowBox[{"f", "[", "\[Lambda]", "]"}], "[", "xb", "]"}]}], ";", " ", 
+        
+        RowBox[{"(*", " ", 
+         RowBox[{"Atualizando", " ", "o", " ", "segundo", " ", "mapa"}], " ", 
+         "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"ldif", ",", 
+          RowBox[{"Abs", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"xb", "-", "xa"}], ")"}], "/", "\[Epsilon]"}], "]"}]}], 
+         "]"}]}], " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Adicionando", " ", "\[AGrave]", " ", "lista"}], " ", "*)"}], 
+       "\[IndentingNewLine]", ")"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], " ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{"O", " ", "la\[CCedilla]o", " ", "vai", " ", "de", " ", "i"}], 
+       "=", 
+       RowBox[{
+        RowBox[{"1", " ", "at\[EAcute]", " ", "i"}], "=", "n"}]}], " ", 
+      "*)"}], "\[IndentingNewLine]", "]"}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "Aqui", " ", "se", " ", "encerra", " ", "o", " ", "la\[CCedilla]o"}], 
+      ";", " ", 
+      RowBox[{
+       RowBox[{"abaixo", " ", "produz"}], "-", 
+       RowBox[{"se", " ", "o", " ", "gr\[AAcute]fico"}]}]}], " ", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"ListLogPlot", "[", 
+     RowBox[{"ldif", ",", 
+      RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\!\(\*StyleBox[\"n\",FontSlant->\"Italic\"]\)\>\"", ",", 
+         "\"\<\[LeftBracketingBar]\!\(\*SubscriptBox[\"\[Epsilon]\", \
+StyleBox[\"n\",FontSlant->\"Italic\"]]\)/\!\(\*SubscriptBox[\(\[Epsilon]\), \
+\(0\)]\)\[RightBracketingBar]\>\""}], "}"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.845544623714471*^9, 3.8455448810467367`*^9}, {
+   3.8455449168093843`*^9, 3.845544926799337*^9}, {3.845545174506562*^9, 
+   3.845545286552433*^9}, {3.845547449041717*^9, 3.845547748428475*^9}, {
+   3.845547779873169*^9, 3.845547804105406*^9}, {3.8455478640015078`*^9, 
+   3.8455479614154778`*^9}, {3.8455481869299717`*^9, 3.845548187373011*^9}, {
+   3.845548592788834*^9, 3.84554865341005*^9}, {3.845974257812755*^9, 
+   3.8459742626587753`*^9}, 3.845974324360119*^9, {3.8467073426815147`*^9, 
+   3.8467073475966873`*^9}},ExpressionUUID->"ef307d4b-ade5-42fa-aef8-\
+5a50faa11c13"],
+
+Cell["\<\
+Essa fun\[CCedilla]\[ATilde]o \[EAcute] mais um exemplo da \
+programa\[CCedilla]\[ATilde]o de um procedimento.\
+\>", "ItemParagraph",
+ CellChangeTimes->{{3.845545332462351*^9, 3.845545374368268*^9}, {
+   3.845547366023691*^9, 3.845547431835915*^9}, {3.845548047767544*^9, 
+   3.8455480523566523`*^9}, 3.845548124768005*^9, {3.845617410281608*^9, 
+   3.845617421271447*^9}, {3.845642312368412*^9, 
+   3.845642323786257*^9}},ExpressionUUID->"61c5e8e9-c532-4918-b741-\
+0430b74a3b23"],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"2970e55d-6d34-4167-8ce5-020d6a07dfcd"],
+
+Cell[TextData[{
+ "Vamos fazer o gr\[AAcute]fico da lista de diferen\[CCedilla]as quando ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "0.1"}], TraditionalForm]],ExpressionUUID->
+  "cffd8275-dab4-4dec-bffb-92c5e338978a"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.845548133943215*^9, 3.845548163957223*^9}, {
+  3.845548370073575*^9, 
+  3.8455483701615057`*^9}},ExpressionUUID->"e581e4fa-e30b-4226-bce7-\
+a3d945403b16"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafdif", "[", 
+   RowBox[{"0.1", ",", "0.5", ",", "0.000001", ",", "100"}], "]"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.84554816685606*^9, 3.845548210926834*^9}, {
+   3.845548343664723*^9, 3.845548372744128*^9}, 
+   3.845974398773952*^9},ExpressionUUID->"fd8d580a-1b26-4a65-a4ad-\
+5720fa9ec503"],
+
+Cell[TextData[{
+ "O gr\[AAcute]fico de fato \[EAcute] uma linha reta (para ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "b3f3b2fd-17fa-42f1-8c65-a04b0e64d167"],
+ " grande) em escala logar\[IAcute]tmica, o que significa que tem \
+comportamento exponencial. Como as diferen\[CCedilla]as decrescem, o expoente \
+de Lyapunov (a inclina\[CCedilla]\[ATilde]o da reta nessa escala) \[EAcute] \
+negativo."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.8455482355661793`*^9, 
+  3.84554831117603*^9}},ExpressionUUID->"3afbc804-7a50-49bf-b622-\
+500e1921dfe5"],
+
+Cell[TextData[{
+ "Agora vamos fazer o gr\[AAcute]fico da lista de diferen\[CCedilla]as quando \
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "0.91"}], TraditionalForm]],ExpressionUUID->
+  "b2d188ff-17ad-43d4-a5b3-c15c94b09501"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.845548324409094*^9, 
+  3.8455483325637903`*^9}},ExpressionUUID->"74c2cdd3-9284-4ac3-811c-\
+adfab98cd6a8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafdif", "[", 
+   RowBox[{"0.91", ",", "0.5", ",", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "7"}]}], ",", "100"}], "]"}], " "}]], "Input",
+ CellChangeTimes->{
+  3.845548341484728*^9, {3.8455483920158*^9, 3.8455484092542887`*^9}, {
+   3.84554844256645*^9, 3.845548455045315*^9}, {3.845548485630464*^9, 
+   3.8455485026746387`*^9}, {3.8455486241314363`*^9, 3.845548624334229*^9}, {
+   3.845548660087085*^9, 3.845548660333696*^9}, 
+   3.845974392608551*^9},ExpressionUUID->"c686ef4f-e025-4011-a893-\
+b6bb1abf457f"],
+
+Cell[TextData[{
+ "O comportamento m\[EAcute]dio \[EAcute] claramente exponencial, e agora com \
+um expoente positivo. Repare que, ap\[OAcute]s ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "8b21d7c6-b135-49bf-9b07-14e8f1227a0b"],
+ " aplica\[CCedilla]\[OTilde]es do mapa, os valores de ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "bb176d7e-8e80-48f0-945a-66f841561ba6"],
+ " nas itera\[CCedilla]\[OTilde]es paralelas divergem de um valor mais de \
+10000 vezes maior do que a diferen\[CCedilla]a inicial, caracterizando uma \
+grande depend\[EHat]ncia das condi\[CCedilla]\[OTilde]es iniciais. Trata-se, \
+portanto, de um comportamento ca\[OAcute]tico."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.8456170564671373`*^9, 3.845617232451006*^9}, 
+   3.8456173266253147`*^9},ExpressionUUID->"c5c82653-0eee-499c-abf5-\
+1d221ef60c2f"]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"38f195cd-9bd1-4b92-aa24-4b496d952422"],
+
+Cell[TextData[{
+ "Agora vamos criar uma fun\[CCedilla]\[ATilde]o para estimar o expoente de \
+Lyapunov do mapa log\[IAcute]stico, dados o valor do par\[AHat]metro \
+\[Lambda] e a condi\[CCedilla]\[ATilde]o inicial ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "0"], TraditionalForm]],ExpressionUUID->
+  "22649997-012a-4d88-b0ea-d2ce504343f2"],
+ ". A fun\[CCedilla]\[ATilde]o executa os seguintes passos:"
+}], "Text",
+ CellChangeTimes->{{3.845617539037848*^9, 3.845617584430943*^9}, {
+  3.845617745723625*^9, 3.845617774703958*^9}, {3.845618831949589*^9, 
+  3.845618832725987*^9}},ExpressionUUID->"cb564d4f-3f10-4263-a901-\
+b04efe7c6169"],
+
+Cell[TextData[{
+ "partindo de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "0"], TraditionalForm]],ExpressionUUID->
+  "b292ed16-362e-4a05-b8b7-ffca959b624e"],
+ ", produz uma lista a partir da itera\[CCedilla]\[ATilde]o do mapa log\
+\[IAcute]stico, aplicado ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "3890557b-1922-404d-acba-b70b65aece90"],
+ " vezes;"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.845617784975833*^9, 3.845617824278776*^9}, {
+  3.845617856682382*^9, 
+  3.845617895292577*^9}},ExpressionUUID->"c7370c63-58d2-4e0b-ac4e-\
+f2649b78514a"],
+
+Cell[TextData[{
+ "desprezando as primeiras ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],ExpressionUUID->
+  "bb21e2ba-df73-4383-98b4-6f809aa2617b"],
+ " aplica\[CCedilla]\[OTilde]es, calcula, para cada elemento restante da \
+lista, a derivada de ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],ExpressionUUID->
+  "935af56a-c3d8-4434-8491-70b54455531c"],
+ " com respeito a ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "e6be231b-aa09-475c-a00c-3ce8665abef5"],
+ " e toma o logaritmo de seu m\[OAcute]dulo, somando os resultados \
+correspondentes e, ao final, dividindo o resultado pelo n\[UAcute]mero de \
+elementos restantes."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.845617784975833*^9, 3.845617830334738*^9}, {
+  3.845617899646096*^9, 3.845617929942914*^9}, {3.845617962467876*^9, 
+  3.845618048237349*^9}, {3.845974432485339*^9, 
+  3.845974443487832*^9}},ExpressionUUID->"b0c91ee9-20c7-476c-9fe0-\
+82ad0d97d5c5"],
+
+Cell[TextData[{
+ "A opera\[CCedilla]\[ATilde]o realizada na etapa 2 pode ser realizada com o \
+aux\[IAcute]lio da fun\[CCedilla]\[ATilde]o intr\[IAcute]nseca ",
+ StyleBox[ButtonBox["Total",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/Total.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/Total.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", que soma os elementos de uma lista."
+}], "Text",
+ CellChangeTimes->{{3.845618098064678*^9, 3.845618131431262*^9}, {
+  3.845618189423283*^9, 3.845618282497304*^9}, {3.845618415641378*^9, 
+  3.84561842505789*^9}, {3.845618475065123*^9, 3.84561855281361*^9}, {
+  3.845618631745582*^9, 3.845618631751053*^9}, {3.846058224299605*^9, 
+  3.8460582598552523`*^9}},ExpressionUUID->"263eb1e5-a1fa-41b4-bb67-\
+201d848f0c9d"],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"abddd09e-d100-4f15-8e69-35fd58b8982c"],
+
+Cell["Eis a fun\[CCedilla]\[ATilde]o que estima o expoente de Lyapunov:", \
+"Text",
+ CellChangeTimes->{{3.8456188067840443`*^9, 3.8456188261106997`*^9}, 
+   3.8456190619743223`*^9, {3.846058282417883*^9, 
+   3.846058285208626*^9}},ExpressionUUID->"22a450a0-a896-4649-b9a9-\
+e4956d322ece"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lyapunov", "[", 
+   RowBox[{"\[Lambda]_", ",", "x0_", ",", "n_", ",", "m_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"xlista", "=", 
+     RowBox[{"Drop", "[", 
+      RowBox[{
+       RowBox[{"NestList", "[", 
+        RowBox[{
+         RowBox[{"f", "[", "\[Lambda]", "]"}], ",", "x0", ",", "n"}], "]"}], 
+       ",", 
+       RowBox[{"m", "+", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Total", "[", 
+      RowBox[{"Log", "[", 
+       RowBox[{"Abs", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", "\[Lambda]", "]"}], "'"}], "[", "xlista", "]"}], 
+        "]"}], "]"}], "]"}], "/", 
+     RowBox[{"Length", "[", "xlista", "]"}]}]}], "\[IndentingNewLine]", ")"}],
+   "  "}]], "Input",
+ CellChangeTimes->{{3.8456175917219687`*^9, 3.845617593555353*^9}, {
+   3.845617658131241*^9, 3.845617658361124*^9}, {3.845617688593239*^9, 
+   3.845617696605578*^9}, 3.845618843841732*^9, {3.8456188843871403`*^9, 
+   3.8456190380268373`*^9}, {3.845619540869316*^9, 3.845619549406228*^9}, {
+   3.845619845104727*^9, 3.845619849067083*^9}, 3.845974585514039*^9, {
+   3.8460582692924843`*^9, 3.846058272824359*^9}, 
+   3.8762108125432806`*^9},ExpressionUUID->"79ae6853-bc38-4649-b7c7-\
+cdee4fee9c90"],
+
+Cell[TextData[{
+ "Note o uso do car\[AAcute]ter ",
+ StyleBox["list\[AAcute]vel",
+  FontVariations->{"Underline"->True}],
+ " das fun\[CCedilla]\[OTilde]es ",
+ StyleBox["Log",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", ",
+ StyleBox["Abs",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " e ",
+ StyleBox["D",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " (esta \[UAcute]ltima utilizada na forma compacta). "
+}], "ItemParagraph",
+ CellChangeTimes->{{3.845619519187234*^9, 3.845619535656356*^9}, {
+   3.8456199422449923`*^9, 3.845620051875523*^9}, 
+   3.846058291946271*^9},ExpressionUUID->"56b48567-8a1c-44e8-9e1d-\
+2bc83fc20533"],
+
+Cell["\<\
+Vamos utilizar a fun\[CCedilla]\[ATilde]o que definimos para estimar os \
+expoentes de Lyapunov dos casos de dois slides atr\[AAcute]s:\
+\>", "Text",
+ CellChangeTimes->{{3.8456201131439857`*^9, 3.845620143709565*^9}, {
+  3.845620852800106*^9, 
+  3.845620859087349*^9}},ExpressionUUID->"4b95f96d-efb3-4e25-bb66-\
+3914fa046b9d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lyapunov", "[", 
+   RowBox[{"0.1", ",", "0.5", ",", "100", ",", "10"}], "]"}], 
+  "  "}], "\[IndentingNewLine]", 
+ RowBox[{"lyapunov", "[", 
+  RowBox[{"0.1", ",", "0.5", ",", "200", ",", "20"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.845620312575439*^9, 3.845620326628613*^9}, {
+   3.845620360692621*^9, 3.8456203804243517`*^9}, 3.845974583971657*^9, 
+   3.8762108267002563`*^9},ExpressionUUID->"308dd84a-bf18-42b5-ad53-\
+ccebcae29f80"],
+
+Cell[TextData[{
+ "Nesse caso de ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "0.1"}], TraditionalForm]],ExpressionUUID->
+  "d3df3cb5-71f2-46e1-acad-aaf940c52e91"],
+ ", a converg\[EHat]ncia do expoente \[AGrave] medida que aumentamos o n\
+\[UAcute]mero de aplica\[CCedilla]\[OTilde]es do mapa \[EAcute] bem \
+r\[AAcute]pida. O resultado negativo \[EAcute] compat\[IAcute]vel com o que \
+observamos antes."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.845620509867386*^9, 3.845620545371233*^9}, {
+  3.845620819713903*^9, 3.845620834564239*^9}, {3.845620866165286*^9, 
+  3.845620869124107*^9}, {3.8459745631312037`*^9, 
+  3.845974569149971*^9}},ExpressionUUID->"ee07a2e7-a7ca-458f-892e-\
+00dc71a48b7d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"lyapunov", "[", 
+  RowBox[{"0.91", ",", "0.5", ",", "100", ",", "10"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lyapunov", "[", 
+   RowBox[{"0.91", ",", "0.5", ",", "200", ",", "20"}], "]"}], 
+  " "}]}], "Input",
+ CellChangeTimes->{{3.8456203918213243`*^9, 3.845620410978993*^9}, {
+   3.8456204678556547`*^9, 3.84562047652293*^9}, {3.8456205510895033`*^9, 
+   3.8456205543854837`*^9}, 3.8459746316157618`*^9},
+ CellLabel->"",ExpressionUUID->"e97c34de-6115-4742-a47d-f0e4a6a29a67"],
+
+Cell[TextData[{
+ "Com ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "0.91"}], TraditionalForm]],ExpressionUUID->
+  "6b411219-1c75-4bd8-90f5-cf7e657f9f73"],
+ " a converg\[EHat]ncia \[EAcute] bem mais lenta. Vamos tentar mais aplica\
+\[CCedilla]\[OTilde]es:"
+}], "ItemParagraph",
+ CellChangeTimes->{{3.8456205696948347`*^9, 3.845620594715221*^9}, {
+  3.8459745941136723`*^9, 
+  3.845974598334667*^9}},ExpressionUUID->"91e076c4-15db-437a-b72f-\
+1e0aebd6e619"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lyapunov", "[", 
+   RowBox[{"0.91", ",", "0.5", ",", "1000", ",", "100"}], "]"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{"lyapunov", "[", 
+  RowBox[{"0.91", ",", "0.5", ",", "10000", ",", "1000"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"lyapunov", "[", 
+  RowBox[{"0.91", ",", "0.5", ",", "100000", ",", "10000"}], "]"}]}], "Input",\
+
+ CellChangeTimes->{{3.845620604480689*^9, 3.845620656623355*^9}, 
+   3.8459746385138083`*^9},
+ CellLabel->"",ExpressionUUID->"b33876d7-44cc-4c5e-9916-4f525f3baea2"],
+
+Cell["\<\
+Vemos que a converg\[EHat]ncia lenta se mant\[EAcute]m, mas parece seguro \
+supor que com 10000 itera\[CCedilla]\[OTilde]es temos uma precis\[ATilde]o de \
+dois algarismos significativos no c\[AAcute]lculo do expoente.\
+\>", "ItemParagraph",
+ CellChangeTimes->{{3.845620083286352*^9, 3.845620099519896*^9}, {
+   3.8456207418645487`*^9, 3.845620810432839*^9}, 3.845621075687395*^9, 
+   3.845621575760035*^9},ExpressionUUID->"25014d13-e8f6-478f-a985-\
+dfb212df2f83"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"1208d5a0-14d9-4fcb-99ab-043f9e44bf50"],
+
+Cell["\<\
+Finalmente produzimos o gr\[AAcute]fico do expoente de Lyapunov do mapa log\
+\[IAcute]stico em fun\[CCedilla]\[ATilde]o do par\[AHat]metro \[Lambda]:\
+\>", "Text",
+ CellChangeTimes->{{3.845621079769956*^9, 
+  3.8456211029224777`*^9}},ExpressionUUID->"cca045d0-3294-40d7-a391-\
+f7f229e1a3a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"lyapunov", "[", 
+     RowBox[{"\[Lambda]", ",", "0.5", ",", "10000", ",", "1000"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Lambda]", ",", "0.5", ",", "1"}], "}"}], ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<\[Lambda]\>\"", ",", "\"\<Expoente de Lyapunov\>\""}], 
+      "}"}]}]}], "]"}], "//", "Timing", "  "}]], "Input",
+ CellChangeTimes->{{3.845621104216483*^9, 3.845621127634509*^9}, {
+   3.84562328854524*^9, 3.8456233308901567`*^9}, {3.8456246411026793`*^9, 
+   3.845624642173678*^9}, 3.845974976777873*^9, 
+   3.876210890388722*^9},ExpressionUUID->"8c1dfefa-2c38-4f91-8ca1-\
+e022abf01f28"],
+
+Cell[TextData[{
+ "Note que o expoente passa de negativo para nulo nos pontos de duplica\
+\[CCedilla]\[ATilde]o de per\[IAcute]odo e \[EAcute] positivo, assinalando \
+comportamento ca\[OAcute]tico, em quase todos os pontos na faixa acima de ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "\[TildeEqual]", "0.9"}], TraditionalForm]],
+  ExpressionUUID->"66c54e6e-48b8-4952-9870-2a7899083108"],
+ ", mas com regi\[OTilde]es de valor negativo, indicando a exist\[EHat]ncia \
+de atratores correspondentes a ciclos finitos, como hav\[IAcute]amos visto \
+nos diagramas de bifurca\[CCedilla]\[ATilde]o. (A fun\[CCedilla]\[ATilde]o \
+Timing retorna o tempo de computador, em segundos, utilizado para executar \
+uma instru\[CCedilla]\[ATilde]o. Em processadores com v\[AAcute]rios n\
+\[UAcute]cleos, o tempo indicado pode n\[ATilde]o corresponder ao tempo \
+decorrido no \[OpenCurlyDoubleQuote]mundo real\[CloseCurlyDoubleQuote].)"
+}], "ItemParagraph",
+ CellChangeTimes->{{3.845620083286352*^9, 3.845620099519896*^9}, {
+  3.8456207418645487`*^9, 3.845620810432839*^9}, {3.845623382029068*^9, 
+  3.845623533814967*^9}, {3.845623588255534*^9, 3.845623593654295*^9}, {
+  3.845974838308165*^9, 
+  3.8459749694269867`*^9}},ExpressionUUID->"e6754b7d-a941-460a-9e7f-\
+60d57158ea1d"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"be0abe2e-7ea9-4155-b26d-ec86b9b79f52"],
+
+Cell[TextData[{
+ "\[CapitalEAcute] interessante explorar melhor o comportamento do expoente \
+na regi\[ATilde]o majoritariamente ca\[OAcute]tica, mas para acelerarmos o c\
+\[AAcute]lculo precisamos compilar a fun\[CCedilla]\[ATilde]o que estima o \
+expoente, ou seja, precisamos transform\[AAcute]-la em \
+\[OpenCurlyDoubleQuote]c\[OAcute]digo de m\[AAcute]quina\
+\[CloseCurlyDoubleQuote]. Isso pode ser feito com o uso de ",
+ StyleBox[ButtonBox["Compile",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/Compile.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/Compile.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", mas exige que a fun\[CCedilla]\[ATilde]o log\[IAcute]stica e sua derivada \
+sejam incorporadas ao c\[OAcute]digo, o que faremos com o aux\[IAcute]lio de \
+fun\[CCedilla]\[OTilde]es puras. A utiliza\[CCedilla]\[ATilde]o de ",
+ StyleBox["Compile",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " requer que o tipo de algumas vari\[AAcute]veis seja declarado, \
+especialmente no caso de inteiros. Isso \[EAcute] feito conforme a sintaxe \
+apresentada abaixo."
+}], "Text",
+ CellChangeTimes->{{3.845623800287888*^9, 3.845623805448306*^9}, {
+  3.845623952689797*^9, 3.845624102032493*^9}, {3.84562432300784*^9, 
+  3.845624339795209*^9}, {3.84562440489847*^9, 3.8456244450603237`*^9}, {
+  3.845624486877383*^9, 
+  3.845624511008505*^9}},ExpressionUUID->"c14c3a78-1c75-4d89-a9eb-\
+a9e13dee0367"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"lyapunovC", "=", 
+    RowBox[{"Compile", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Lambda]", ",", "x0", ",", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "_Integer"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", "_Integer"}], "}"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"xlista", "=", 
+        RowBox[{"Drop", "[", 
+         RowBox[{
+          RowBox[{"NestList", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"4", "*", "\[Lambda]", "*", "#", "*", 
+              RowBox[{"(", 
+               RowBox[{"1", "-", "#"}], ")"}]}], "&"}], ",", "x0", ",", "n"}],
+            "]"}], ",", 
+          RowBox[{"m", "+", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{"Log", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"4", "*", "\[Lambda]", "*", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              RowBox[{"2", "*", "xlista"}]}], ")"}]}], "]"}], "]"}], "]"}], 
+        "/", 
+        RowBox[{"Length", "[", "xlista", "]"}]}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], ";"}], "  "}]], "Input",
+ CellChangeTimes->{{3.8456241172914753`*^9, 3.8456242261235228`*^9}, {
+   3.84562425796425*^9, 3.845624301515728*^9}, 3.845624602182818*^9, {
+   3.8459752042938347`*^9, 3.845975211587274*^9}, {3.846058516242045*^9, 
+   3.846058518852565*^9}, 
+   3.876210967782692*^9},ExpressionUUID->"9340bc03-b7f5-4a2b-adc8-\
+80ccf4c6989c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"lyapunovC", "[", 
+     RowBox[{"\[Lambda]", ",", "0.5", ",", "10000", ",", "1000"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Lambda]", ",", "0.5", ",", "1"}], "}"}], ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<\[Lambda]\>\"", ",", "\"\<Expoente de Lyapunov\>\""}], 
+      "}"}]}]}], "]"}], "//", "Timing", "  "}]], "Input",
+ CellChangeTimes->{
+  3.84562456145522*^9, {3.8456247095133123`*^9, 3.845624710574951*^9}, 
+   3.845975213467257*^9, 
+   3.876210971666813*^9},ExpressionUUID->"69827c8a-7120-4f12-be29-\
+752643337b7e"],
+
+Cell["\<\
+Note que o tempo necess\[AAcute]rio para produzir o gr\[AAcute]fico \
+reduziu-se em mais de uma ordem de magnitude. Compilar \
+fun\[CCedilla]\[OTilde]es requer um conhecimento mais t\[EAcute]cnico de \
+computa\[CCedilla]\[ATilde]o e as fun\[CCedilla]\[OTilde]es compiladas sup\
+\[OTilde]em valores num\[EAcute]ricos dos argumentos. Utilizar valores simb\
+\[OAcute]licos implica ignorar a compila\[CCedilla]\[ATilde]o, ou seja, o \
+Mathematica reinterpreta o conte\[UAcute]do da fun\[CCedilla]\[ATilde]o na \
+forma padr\[ATilde]o.\
+\>", "ItemParagraph",
+ CellChangeTimes->{{3.845624726155611*^9, 3.845624855024494*^9}, {
+  3.845625073118895*^9, 3.84562515242655*^9}, {3.845625682544622*^9, 
+  3.845625682757853*^9}, {3.845975238011613*^9, 
+  3.8459752639797697`*^9}},ExpressionUUID->"b7224c3d-e201-4c47-918f-\
+1299caf54d4e"],
+
+Cell[TextData[{
+ "Agora podemos explorar melhor a regi\[ATilde]o ca\[OAcute]tica. Primeiro \
+vamos examinar a regi\[ATilde]o entre ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "0.88"}], TraditionalForm]],ExpressionUUID->
+  "bb5bd95b-a871-42d1-9856-772806bfceae"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Lambda]", "=", "1"}], TraditionalForm]],ExpressionUUID->
+  "cca0543f-e03e-4995-948b-0b33e5e8aa07"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.845625883156399*^9, 
+  3.845625925320653*^9}},ExpressionUUID->"34fe4e7f-a9ed-448d-909a-\
+46096b9b5f0e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"lyapunovC", "[", 
+     RowBox[{"\[Lambda]", ",", "0.5", ",", "10000", ",", "1000"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Lambda]", ",", "0.88", ",", "1"}], "}"}], ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<\[Lambda]\>\"", ",", "\"\<Expoente de Lyapunov\>\""}], 
+      "}"}]}]}], "]"}], "  "}]], "Input",
+ CellChangeTimes->{{3.845625699479464*^9, 3.845625716149736*^9}, 
+   3.845975351957253*^9, 
+   3.8762109941835766`*^9},ExpressionUUID->"ce3b20d7-7cb1-4b5e-b855-\
+7bf07cc0c2a8"],
+
+Cell["\<\
+E ampliando a regi\[ATilde]o em que regime passa de regular para \
+ca\[OAcute]tico:\
+\>", "Text",
+ CellChangeTimes->{{3.845626611823563*^9, 
+  3.845626629676559*^9}},ExpressionUUID->"58f3ff0c-5d04-4c6e-824f-\
+fa95cedbae3b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"lyapunovC", "[", 
+     RowBox[{"\[Lambda]", ",", "0.5", ",", "50000", ",", "10000"}], "]"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Lambda]", ",", "0.8923", ",", "0.8926"}], "}"}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+    RowBox[{"LabelStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"FontSize", "\[Rule]", "18"}], "}"}]}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<\[Lambda]\>\"", ",", "\"\<Expoente de Lyapunov\>\""}], 
+      "}"}]}], ",", 
+    RowBox[{"PlotPoints", "\[Rule]", " ", "200"}]}], "]"}], "  "}]], "Input",
+ CellChangeTimes->{{3.8456266471869183`*^9, 3.845626761405385*^9}, {
+   3.845626916054253*^9, 3.845626945873054*^9}, 3.845975347232275*^9, 
+   3.876211035912755*^9},ExpressionUUID->"0af96918-8aaa-4038-be5a-\
+06c7994f7865"],
+
+Cell["\<\
+Essas amplia\[CCedilla]\[OTilde]es evidenciam a exist\[EHat]ncia das \
+\[OpenCurlyDoubleQuote]ilhas de estabilidade\[CloseCurlyDoubleQuote], com \
+expoente negativo, mesmo nas regi\[OTilde]es em que o comportamento \[EAcute] \
+majoritariamente ca\[OAcute]tico, ou seja, com expoente positivo. Essas ilhas \
+existem em todas as escalas, mais uma manifesta\[CCedilla]\[ATilde]o de \
+comportamento fractal.\
+\>", "Text",
+ CellChangeTimes->{{3.845626818318594*^9, 3.845626883833707*^9}, {
+  3.845975321689166*^9, 
+  3.8459753382147703`*^9}},ExpressionUUID->"3d2a4242-64c9-4234-849f-\
+7659678bf1c2"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"bb5c3a27-f368-4c46-8407-2371a3fd88a9"],
+
+Cell["O mapa de H\[EAcute]non", "Section",
+ CellChangeTimes->{{3.846235917487134*^9, 3.8462359209732733`*^9}, {
+  3.846236460490242*^9, 
+  3.8462364625593147`*^9}},ExpressionUUID->"41a6820d-1ece-4233-994a-\
+ab2c73e19b54"],
+
+Cell[TextData[{
+ "Vamos agora considerar o mapa bidimensional de H\[EAcute]non, definido \
+pelas equa\[CCedilla]\[OTilde]es recursivas\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["x", 
+      RowBox[{"n", "+", "1"}]], "=", 
+     RowBox[{"1", "-", 
+      RowBox[{"a", " ", 
+       SubsuperscriptBox["x", "n", "2"]}], "+", 
+      SubscriptBox["y", "n"]}]}], " ", ","}], TraditionalForm]],
+  ExpressionUUID->"e25eecbc-8a72-48d3-bf92-bebb6a370f15"],
+ "\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["y", 
+     RowBox[{"n", "+", "1"}]], "=", 
+    RowBox[{"b", " ", 
+     SubscriptBox["x", "n"]}]}], TraditionalForm]],ExpressionUUID->
+  "6dd45498-7f11-420b-8519-f5924e86e7da"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.846235932246723*^9, 3.84623594141453*^9}, {
+  3.846236468387335*^9, 3.846236531782585*^9}, {3.846238568535305*^9, 
+  3.846238618028182*^9}, {3.84625326641616*^9, 
+  3.846253266575406*^9}},ExpressionUUID->"cab7db2e-193a-4c32-a2d7-\
+a47f99ec0fce"],
+
+Cell[TextData[{
+ "Vamos definir o mapa no Mathematica como uma fun\[CCedilla]\[ATilde]o que \
+retorna um par ordenado ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["r", 
+     RowBox[{"n", "+", "1"}]], "=", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["x", 
+       RowBox[{"n", "+", "1"}]], ",", 
+      SubscriptBox["y", 
+       RowBox[{"n", "+", "1"}]]}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "36e1d0e0-673b-406c-9320-bfc99d7065cb"],
+ " quando invocada com um par ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["r", "n"], "=", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["x", "n"], ",", 
+      SubscriptBox["y", "n"]}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "41186e2d-2ed1-4349-9a76-aad9a3df12fb"],
+ ", dados ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "b7a7ac1a-146c-4501-82b9-5af8175ebc21"],
+ " e ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],ExpressionUUID->
+  "feb53fb3-195f-4798-99f7-a56850e1ab99"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.8462386496967087`*^9, 3.846238713877079*^9}, {
+  3.846239077200778*^9, 
+  3.846239087449527*^9}},ExpressionUUID->"1d3761d6-5cca-4763-abf6-\
+ef2684d3124a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], "[", "r_", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"1", "-", 
+     RowBox[{"a", "*", 
+      RowBox[{
+       RowBox[{"r", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "^", "2"}]}], "+", 
+     RowBox[{"r", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+    RowBox[{"b", "*", 
+     RowBox[{"r", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], " "}]], "Input",
+ CellChangeTimes->{{3.84623871939466*^9, 3.846238725285338*^9}, {
+   3.846238785417852*^9, 3.846238811979311*^9}, {3.846239030890184*^9, 
+   3.846239048759886*^9}, 
+   3.8762111133250103`*^9},ExpressionUUID->"ea3c314d-4922-43e6-a7e1-\
+de8292df9dc1"],
+
+Cell[TextData[{
+ "O mapa de H\[EAcute]non tamb\[EAcute]m leva a comportamentos \
+ca\[OAcute]ticos. Vamos fixar ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"b", "=", "0.3"}], TraditionalForm]],ExpressionUUID->
+  "e534c99b-c1e4-4e38-a298-f511e8740854"],
+ " e explorar o que acontece com o par ordenado ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["r", "n"], "=", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["x", "n"], ",", 
+      SubscriptBox["y", "n"]}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "e64500e3-219a-4281-b03e-1bf9c735558a"],
+ " depois de muitas aplica\[CCedilla]\[OTilde]es do mapa, quando ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "3034a1b5-a778-4aa6-bed0-33b4eb69e4f5"],
+ " varia. Tomando inicialmente ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "d227a635-f8fb-450e-8e34-81eeced22791"],
+ " e aplicando recursivamente o mapa, observamos que ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["r", "n"], TraditionalForm]],ExpressionUUID->
+  "7931f4a7-1a2f-42e9-906e-82c3683bbc0b"],
+ " tende a um ponto fixo: "
+}], "Text",
+ CellChangeTimes->{{3.846238838832707*^9, 3.846238923488618*^9}, 
+   3.8462389648559647`*^9, {3.846239108035091*^9, 
+   3.8462391555892973`*^9}},ExpressionUUID->"b6501304-3cb6-4891-95fc-\
+2fa56b16c61c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NestList", "[", 
+   RowBox[{
+    RowBox[{"h", "[", 
+     RowBox[{"0", ",", "0.3"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0.5", ",", "0.5"}], "}"}], ",", "20"}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.846238972906348*^9, 3.846239003072303*^9}, {
+   3.846239099337285*^9, 3.846239100059417*^9}, {3.846239167849409*^9, 
+   3.846239176189479*^9}, 
+   3.8762111168758802`*^9},ExpressionUUID->"f38baa95-3b6c-45d5-99d7-\
+08fb477628c5"],
+
+Cell[TextData[{
+ "J\[AAcute] para ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "0.5"}], TraditionalForm]],ExpressionUUID->
+  "e9b4244a-f303-4db2-b369-08d3213701bb"],
+ ", obtemos um ciclo 2:"
+}], "Text",
+ CellChangeTimes->{{3.8462392021878433`*^9, 
+  3.846239245825947*^9}},ExpressionUUID->"a3c1ae49-a288-43cf-baa9-\
+05f2983c3da8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NestList", "[", 
+   RowBox[{
+    RowBox[{"h", "[", 
+     RowBox[{"0.5", ",", "0.3"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0.5", ",", "0.5"}], "}"}], ",", "20"}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.846239216510564*^9, 3.8462392352411013`*^9}, 
+   3.876211123901535*^9},ExpressionUUID->"1e582583-b5f1-4d5e-a3ea-\
+ff3f4da84e87"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"8b1c847b-69b6-46ed-b9c5-dd3785eab3ac"],
+
+Cell[TextData[{
+ "Uma forma conveniente de acompanhar os atratores que parecem surgir \
+\[EAcute] visualizar os pontos produzidos, ap\[OAcute]s muitas aplica\
+\[CCedilla]\[OTilde]es do mapa, no plano ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", " ", "y"}], TraditionalForm]],ExpressionUUID->
+  "92807a17-2804-4b29-9db2-505ad3c7e412"],
+ ", que vamos chamar de \[OpenCurlyDoubleQuote]espa\[CCedilla]o de fase\
+\[CloseCurlyDoubleQuote]. Para isso, vamos criar uma fun\[CCedilla]\[ATilde]o \
+que aplica o mapa ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "4cebd65e-983c-44fd-8bc2-0b9b7872e715"],
+ " vezes e tra\[CCedilla]a os \[UAcute]ltimos ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", "-", "m"}], TraditionalForm]],ExpressionUUID->
+  "6c49fb1d-d340-40ed-9fbc-97befa1419a4"],
+ " pontos produzidos. Aproveitamos para introduzir a fun\[CCedilla]\[ATilde]o \
+intr\[IAcute]nseca ",
+ StyleBox[ButtonBox["Module",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/Module.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/Module.html"],
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ ", que permite tratar certas vari\[AAcute]veis como \
+\[OpenCurlyDoubleQuote]locais\[CloseCurlyDoubleQuote], ou seja, \
+vari\[AAcute]veis cuja atribui\[CCedilla]\[ATilde]o vale apenas para efeito \
+de um certo conjunto de instru\[CCedilla]\[OTilde]es, e n\[ATilde]o para o \
+restante do notebook: "
+}], "Text",
+ CellChangeTimes->{{3.846239328143869*^9, 3.84623944913795*^9}, {
+  3.846239683072414*^9, 3.846239779697855*^9}, {3.846246188550918*^9, 
+  3.846246195031847*^9}},ExpressionUUID->"4d72f6a4-5333-4bab-8290-\
+957d6a1ca486"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"a_", ",", "b_", ",", "m_", ",", "n_", ",", "tam_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"r", "=", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5"}], "}"}]}], ",", "lista"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"lista", "=", 
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"NestList", "[", 
+          RowBox[{
+           RowBox[{"h", "[", 
+            RowBox[{"a", ",", "b"}], "]"}], ",", "r", ",", "n"}], "]"}], ",", 
+         
+         RowBox[{"m", "+", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"ListPlot", "[", 
+       RowBox[{"lista", ",", 
+        RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"PointSize", "[", "tam", "]"}]}], ",", 
+        RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<\!\(\*StyleBox[SubscriptBox[\"x\", \
+\"n\"],FontSlant->\"Italic\"]\)\>\"", ",", 
+           "\"\<\!\(\*StyleBox[SubscriptBox[\"y\", \"n\"],FontSlant->\"Italic\
+\"]\)\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"\"\<\!\(\*StyleBox[\"a\",FontSlant->\"Italic\"]\)=\>\"", "<>", 
+          RowBox[{"ToString", "[", "a", "]"}], "<>", 
+          "\"\<, \!\(\*StyleBox[\"b\",FontSlant->\"Italic\"]\)=\>\"", "<>", 
+          RowBox[{"ToString", "[", "b", "]"}]}]}]}], "]"}]}], 
+     "\[IndentingNewLine]", ")"}]}], "\[IndentingNewLine]", "]"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.8462394529568367`*^9, 3.846239474553844*^9}, {
+   3.846239558436638*^9, 3.846239591508552*^9}, {3.8462396330102262`*^9, 
+   3.846239666310315*^9}, {3.846239796033555*^9, 3.846239916205737*^9}, {
+   3.846245793046486*^9, 3.8462458566204042`*^9}, {3.846245906679068*^9, 
+   3.846245929453232*^9}, {3.8462459620995293`*^9, 3.846245989606854*^9}, {
+   3.8462460476189423`*^9, 3.846246053417327*^9}, {3.8462461033296757`*^9, 
+   3.8462461515639963`*^9}, 3.846246309883341*^9, {3.84624634028437*^9, 
+   3.846246394701527*^9}, 
+   3.8762111958998356`*^9},ExpressionUUID->"ebdb77a8-27af-4be1-86c5-\
+732ad0739569"],
+
+Cell[TextData[{
+ "O argumento ",
+ StyleBox["tam",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " nos permite controlar o tamanho do ponto no gr\[AAcute]fico."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.84624625435273*^9, 
+  3.846246295616961*^9}},ExpressionUUID->"0035ccf6-57f2-478a-8743-\
+5aebc837244d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"0", ",", "0.3", ",", "90", ",", "100", ",", "0.02"}], "]"}], " ", 
+  
+  RowBox[{"(*", " ", 
+   RowBox[{"Com", " ", "ponto", " ", 
+    RowBox[{"fixo", "."}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.846245859130458*^9, 3.8462458888826103`*^9}, 
+   3.846245998387602*^9, {3.8462460357616243`*^9, 3.846246083952867*^9}, {
+   3.846246174429738*^9, 3.846246174518013*^9}, {3.846246303007504*^9, 
+   3.846246303503477*^9}, {3.846491599253539*^9, 
+   3.84649160637962*^9}},ExpressionUUID->"f0d26402-eb88-4ee4-9292-\
+60700fe0c26d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"0.5", ",", "0.3", ",", "90", ",", "100", ",", "0.02"}], "]"}], 
+  " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Com", " ", "ciclo", " ", "2."}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.846246421089719*^9, 3.8462464211578093`*^9}, {
+  3.846491612086838*^9, 
+  3.8464916181585283`*^9}},ExpressionUUID->"5e263ead-68ac-46b4-9c53-\
+ab102fd33132"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"1.0", ",", "0.3", ",", "90", ",", "100", ",", "0.02"}], "]"}], 
+  " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Com", " ", "ciclo", " ", "4"}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.846246438043953*^9, 3.846246438751769*^9}, {
+  3.846491622986127*^9, 
+  3.846491629272361*^9}},ExpressionUUID->"8c2e0267-e9b9-467e-a664-\
+e1743007be76"]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"deb45ec0-9267-4a35-908f-a141ebded7dd"],
+
+Cell[TextData[{
+ "Agora vamos aumentar o valor de ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "0f2f57d0-9371-409c-b91e-e49ed9b43e36"],
+ " para 1.4, incrementando aos poucos o n\[UAcute]mero de aplica\[CCedilla]\
+\[OTilde]es do mapa e o n\[UAcute]mero de pontos exibidos:"
+}], "Text",
+ CellChangeTimes->{{3.846246494372861*^9, 
+  3.846246563570961*^9}},ExpressionUUID->"180c2e43-d459-49ff-b5ae-\
+23f009f27309"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"1.4", ",", "0.3", ",", "90", ",", "100", ",", "0.02"}], "]"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.846246519921824*^9, 3.8462465200126457`*^9}, 
+   3.876211295101232*^9},ExpressionUUID->"3ec12fb1-3b13-4443-868d-\
+e80a1ab9abab"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"1.4", ",", "0.3", ",", "900", ",", "1000", ",", "0.02"}], "]"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.846246574292471*^9, 3.8462465755635242`*^9}, 
+   3.8762113005583115`*^9},ExpressionUUID->"1ac453d6-5cca-4b41-ad27-\
+8b673f613bcd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"1.4", ",", "0.3", ",", "9000", ",", "10000", ",", "0.002"}], 
+   "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.84624659680449*^9, 3.8462466084447803`*^9}, 
+   3.8762113056593065`*^9},ExpressionUUID->"f26dca58-8f4f-4748-ad2e-\
+ae7d03f85721"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"grafmapahenon", "[", 
+   RowBox[{"1.4", ",", "0.3", ",", "90000", ",", "100000", ",", "0.001"}], 
+   "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.8462466262573633`*^9, 3.846246634330248*^9}, 
+   3.87621131048781*^9},ExpressionUUID->"90547a11-91b8-4c69-8d09-\
+d1f5ed2254b0"],
+
+Cell["\<\
+O que se observa nesse caso \[EAcute] um \[OpenCurlyDoubleQuote]atrator \
+estranho\[CloseCurlyDoubleQuote], com caracter\[IAcute]sticas fractais, que \
+se tornam vis\[IAcute]veis quando ampliamos a visualiza\[CCedilla]\[ATilde]o, \
+evidenciando a exist\[EHat]ncia de uma hierarquia de linhas paralelas em \
+escalas cada vez menores. Vejamos uma amplia\[CCedilla]\[ATilde]o da regi\
+\[ATilde]o inferior do atrator\
+\>", "ItemParagraph",
+ CellChangeTimes->{{3.846246731298813*^9, 3.8462469039080973`*^9}, {
+  3.846492817188162*^9, 
+  3.846492959514228*^9}},ExpressionUUID->"4040f4bb-c706-47c1-8c9a-\
+5e378c0b5c9c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"grafmapahenon", "[", 
+     RowBox[{"1.4", ",", "0.3", ",", "180000", ",", "200000", ",", "0.001"}], 
+     "]"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "0.295"}], "-", "0.06"}], ",", 
+         RowBox[{
+          RowBox[{"-", "0.295"}], "+", "0.06"}]}], "}"}]}], "}"}]}]}], "]"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.846496439952799*^9, 3.8464964966156883`*^9}, 
+   3.876211316075124*^9},ExpressionUUID->"af44d468-d482-4687-9e34-\
+d7fca6e147e6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"grafmapahenon", "[", 
+     RowBox[{
+     "1.4", ",", "0.3", ",", "1800000", ",", "2000000", ",", "0.001"}], "]"}],
+     ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.03"}], ",", "0.03"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "0.295"}], "-", "0.003"}], ",", 
+         RowBox[{
+          RowBox[{"-", "0.295"}], "+", "0.003"}]}], "}"}]}], "}"}]}]}], "]"}],
+   " "}]], "Input",
+ CellChangeTimes->{{3.846496545245706*^9, 3.846496598535564*^9}, 
+   3.8762113204947586`*^9},ExpressionUUID->"5a9fc5b2-dae7-4b8f-8864-\
+46d9021966b5"],
+
+Cell["\<\
+Esse tipo de atrator indica que n\[ATilde]o h\[AAcute] uma periodicidade nos \
+pontos produzidos, e est\[AAcute] associado a comportamento ca\[OAcute]tico, \
+como vamos confirmar em seguida analisando o diagrama de bifurca\[CCedilla]\
+\[OTilde]es. \
+\>", "Text",
+ CellChangeTimes->{
+  3.846492826405979*^9},ExpressionUUID->"70a4fed7-4271-4240-b77f-\
+e3bcc023a0a3"]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"a79bcab2-c0bb-43da-8eba-09d00399039e"],
+
+Cell[TextData[{
+ "Para gerar o mapa de bifurca\[CCedilla]\[OTilde]es de maneira mais r\
+\[AAcute]pida, vamos trabalhar com uma fun\[CCedilla]\[ATilde]o compilada. \
+Primeiro, vamos criar uma fun\[CCedilla]\[ATilde]o que produz, dados valores \
+dos par\[AHat]metros ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "a4ea3a93-2651-4d21-99e3-6b975316bcf9"],
+ " e ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],ExpressionUUID->
+  "96e6d569-981e-4c90-8b2e-8611d60645fc"],
+ ", uma lista contendo os \[UAcute]ltimos ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],ExpressionUUID->
+  "7c18a532-e1a5-4b77-8e8a-6c7a1e346093"],
+ " pontos produzidos por ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "9d55882d-0645-4350-bbd9-2a4d5e6b2b21"],
+ " aplica\[CCedilla]\[OTilde]es do mapa a partir de ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["x", "0"], ",", 
+      SubscriptBox["y", "0"]}], ")"}], "=", 
+    RowBox[{"(", 
+     RowBox[{"0.5", ",", "0.5"}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "7dfc7fa8-0b32-4491-b190-3b24d7257615"],
+ ". Vamos nos concentrar nos valores de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "n"], TraditionalForm]],ExpressionUUID->
+  "1e09077b-5172-464e-9b0f-e7fc51a097ce"],
+ ", mas o aspecto final do mapa seria qualitativamente o mesmo se utiliz\
+\[AAcute]ssemos os valores de ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["y", "n"], TraditionalForm]],ExpressionUUID->
+  "cac6de16-b827-4b90-b900-0594a2e944c5"],
+ ", j\[AAcute] que ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["y", "n"], "=", 
+    RowBox[{"b", " ", 
+     SubscriptBox["x", 
+      RowBox[{"n", "-", "1"}]]}]}], TraditionalForm]],ExpressionUUID->
+  "16d3bbca-3932-4c62-ba42-d6ee31abd34a"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.846493364380221*^9, 3.846493536650672*^9}, {
+  3.846498505998994*^9, 
+  3.846498529770546*^9}},ExpressionUUID->"b94d21c9-28c5-4529-aa60-\
+58c7fbc70743"],
+
+Cell[BoxData[
+ RowBox[{"pontos", ":=", "\[IndentingNewLine]", 
+  RowBox[{"Compile", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b", ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "_Integer"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "_Integer"}], "}"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"xlista", "=", 
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"NestList", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"1", "-", 
+               RowBox[{"a", "*", 
+                RowBox[{
+                 RowBox[{"#", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "^", "2"}]}], "+", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+              RowBox[{"b", "*", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], "&"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0.5", ",", "0.5"}], "}"}], ",", "n"}], "]"}], ",", 
+         RowBox[{"m", "+", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"saida", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"saida", ",", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", 
+            RowBox[{"xlista", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "xlista", "]"}]}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "saida"}], "\[IndentingNewLine]", ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"xlista", ",", "_Real", ",", "2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"saida", ",", "_Real", ",", "2"}], "}"}]}], "}"}]}], "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Com", " ", "Compile", " ", "\[EAcute]", " ", "\[AGrave]s", " ", "vezes",
+       " ", "necess\[AAcute]rio", " ", "declarar", " ", "o", " ", "tipo", " ",
+       "de", " ", "vari\[AAcute]vel", " ", "mesmo", " ", "quando", " ", 
+      "n\[ATilde]o", " ", "se", " ", "trata", " ", "de", " ", "argumentos", 
+      " ", "da", " ", 
+      RowBox[{"fun\[CCedilla]\[ATilde]o", ".", " ", "Neste"}], " ", "caso"}], 
+     ",", " ", 
+     RowBox[{"'", 
+      RowBox[{"xlista", "'"}], " ", 
+      RowBox[{"e", " ", "'"}], 
+      RowBox[{"saida", "'"}], " ", "s\[ATilde]o", " ", "tensores", " ", 
+      "reais", " ", "de", " ", "rank", " ", "2", " ", 
+      RowBox[{"(", "matrizes", ")"}]}], ",", " ", 
+     RowBox[{
+     "tipo", " ", "que", " ", "o", " ", "Mathematica", " ", "n\[ATilde]o", 
+      " ", "espera", " ", "usualmente", " ", "em", " ", 
+      RowBox[{"Compile", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8462473147621527`*^9, 3.846247349231986*^9}, {
+   3.846248203748138*^9, 3.846248219467555*^9}, 3.84649355758534*^9, {
+   3.8464936833090773`*^9, 3.846493801440547*^9}, 
+   3.8762114332247944`*^9},ExpressionUUID->"759ad2d3-1f08-4ce3-855f-\
+08cf9a9fb49d"],
+
+Cell[TextData[{
+ "Em seguida, criamos uma segunda fun\[CCedilla]\[ATilde]o compilada que \
+varre os valores de ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "7540b2c5-dbf1-4d5a-9400-a53b34fe488c"],
+ ", com ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],ExpressionUUID->
+  "b2fd3eaf-4e97-4791-809c-a2058c6ffa2c"],
+ " fixo, invocando a primeira fun\[CCedilla]\[ATilde]o e acrescentando os \
+resultados a uma grande lista:"
+}], "Text",
+ CellChangeTimes->{{3.8464938799743013`*^9, 3.846493970198371*^9}, {
+  3.846494035831257*^9, 
+  3.8464940573521633`*^9}},ExpressionUUID->"3a3d02c9-afea-470c-81d1-\
+d615705b7bb5"],
+
+Cell[BoxData[
+ RowBox[{"varrepontos", ":=", "\[IndentingNewLine]", 
+  RowBox[{"Compile", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"amin", ",", "amax", ",", "na", ",", "b", ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "_Integer"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "_Integer"}], "}"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"grandelista", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"grandelista", ",", 
+          RowBox[{"pontos", "[", 
+           RowBox[{"a", ",", "b", ",", "m", ",", "n"}], "]"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", "amin", ",", "amax", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"amax", "-", "amin"}], ")"}], "/", "na"}]}], "}"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"grandelista", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+     ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"grandelista", ",", "_Real", ",", "3"}], "}"}], "}"}]}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Neste", " ", "caso"}], ",", " ", 
+     RowBox[{"'", 
+      RowBox[{"grandelista", "'"}], " ", "\[EAcute]", " ", "um", " ", 
+      "tensor", " ", "reais", " ", "de", " ", "rank", " ", "3", " ", 
+      RowBox[{"(", 
+       RowBox[{"lista", " ", "de", " ", "matrizes"}], ")"}]}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.846494001579669*^9, 3.846494029523218*^9}, {
+  3.846494118859303*^9, 3.846494130019534*^9}, {3.846498561749793*^9, 
+  3.846498562454998*^9}},ExpressionUUID->"699a8ae3-be76-49fc-badb-\
+e6ce27349c5e"],
+
+Cell[TextData[{
+ "Como a fun\[CCedilla]\[ATilde]o ",
+ StyleBox["pontos",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " cria uma lista de pares ordenados, a vari\[AAcute]vel ",
+ StyleBox["grandelista",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " corresponde a uma lista de listas de pares ordenados. Para fazer um gr\
+\[AAcute]fico de todos os pontos em uma \[UAcute]nica cor, \[EAcute] \
+conveniente removermos a hierarquia superior de chaves, o que \[EAcute] feito \
+com a fun\[CCedilla]\[ATilde]o ",
+ StyleBox["Flatten",
+  FontFamily->"Source Code Pro",
+  FontWeight->"Regular"],
+ " tendo 1 como segundo argumento."
+}], "ItemParagraph",
+ CellChangeTimes->{{3.846494081248563*^9, 3.846494109147479*^9}, {
+  3.846494149850575*^9, 3.846494237015135*^9}, {3.846494269089624*^9, 
+  3.846494290745545*^9}},ExpressionUUID->"62bd90a2-ecd1-4cc1-a366-\
+15991414f930"],
+
+Cell["\<\
+Agora criamos a fun\[CCedilla]\[ATilde]o que produz o gr\[AAcute]fico \
+propriamente dito:\
+\>", "Text",
+ CellChangeTimes->{{3.846494317138795*^9, 3.846494328072805*^9}, {
+  3.84649841724865*^9, 
+  3.846498499091172*^9}},ExpressionUUID->"742346c5-8744-47d6-a267-\
+d1a192d08415"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diagbifurca", "[", 
+   RowBox[{
+   "amin_", ",", "amax_", ",", "na_", ",", "b_", ",", "m_", ",", "n_"}], 
+   "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"varrepontos", "[", 
+     RowBox[{"amin", ",", "amax", ",", "na", ",", "b", ",", "m", ",", "n"}], 
+     "]"}], ",", 
+    RowBox[{"Evaluate", "[", "optam", "]"}], ",", 
+    RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<\!\(\*StyleBox[\"a\",FontSlant->\"Italic\"]\)\>\"", ",", 
+       "\"\<\!\(\*StyleBox[\"x\",FontSlant->\"Italic\"]\)\>\""}], "}"}]}], 
+    ",", 
+    RowBox[{"PlotStyle", "\[Rule]", " ", 
+     RowBox[{"PointSize", "[", "0.001", "]"}]}], ",", 
+    RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.846247411725266*^9, 3.84624742917423*^9}, {
+   3.846494342570897*^9, 3.846494348922248*^9}, 
+   3.876211526432526*^9},ExpressionUUID->"1129e70c-ecbe-4b00-9005-\
+34cd5d95be79"],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"281a2d41-2252-47dc-b4d5-2547fc5b5434"],
+
+Cell["\<\
+Definidas as fun\[CCedilla]\[OTilde]es, vamos observar os diagramas de \
+bifurca\[CCedilla]\[ATilde]o: \
+\>", "Text",
+ CellChangeTimes->{{3.846253202265926*^9, 3.846253329597424*^9}, {
+  3.846253391401495*^9, 3.8462535197085447`*^9}, {3.846494424958768*^9, 
+  3.846494443329414*^9}},ExpressionUUID->"ec96dd7b-2a85-4132-8ed4-\
+d26bae0f455b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diagbifurca", "[", 
+   RowBox[{"0.", ",", "1.4", ",", "1400", ",", "0.3", ",", "1024", ",", 
+    RowBox[{"1024", "+", "512"}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.846253332626011*^9, 3.8462533784340763`*^9}, {
+   3.8462535260377083`*^9, 3.846253528901533*^9}, 3.8464944503424387`*^9, 
+   3.8762115753779836`*^9},ExpressionUUID->"1b434e75-75ac-41a9-89ed-\
+9a299df862ed"],
+
+Cell[TextData[{
+ "Vamos ampliar a regi\[ATilde]o entre ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "1"}], TraditionalForm]],ExpressionUUID->
+  "6d39bf8d-84b8-4189-984f-498945d66a46"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "1.4"}], TraditionalForm]],ExpressionUUID->
+  "e9666e1d-1f18-4927-9c96-100c752e2e1e"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.8464967110842037`*^9, 
+  3.846496726420823*^9}},ExpressionUUID->"b3d16d92-d033-456f-9fbf-\
+0002f271dcf3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diagbifurca", "[", 
+   RowBox[{"1.0", ",", "1.4", ",", "1600", ",", "0.3", ",", "1024", ",", 
+    RowBox[{"1024", "+", "512"}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.846496737497156*^9, 3.8464967405795403`*^9}, 
+   3.876211578100049*^9},ExpressionUUID->"a27565c3-05f1-4d97-b53f-\
+9a0a212735ee"],
+
+Cell[TextData[{
+ "Na regi\[ATilde]o mais \[AGrave] esquerda, o padr\[ATilde]o de bifurca\
+\[CCedilla]\[OTilde]es \[EAcute] semelhante ao que observamos para o mapa log\
+\[IAcute]stico. Para podermos estimar a (suposta) constante ",
+ Cell[BoxData[
+  FormBox["\[Delta]", TraditionalForm]],ExpressionUUID->
+  "978d1873-794c-40ef-a31f-bfdabb7ddeb6"],
+ " de Feigenbaum, vamos selecionar a regi\[ATilde]o entre ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "1.05"}], TraditionalForm]],ExpressionUUID->
+  "19c3e2df-5bd5-4b42-849e-c75dbf3ab697"],
+ " e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "1.06"}], TraditionalForm]],ExpressionUUID->
+  "ed11cd80-7464-4036-9804-5e75773031ea"],
+ ", que envolve ciclos de ordem mais elevada:"
+}], "Text",
+ CellChangeTimes->{{3.846496796064999*^9, 
+  3.8464968920382957`*^9}},ExpressionUUID->"e46416a1-958f-4ad1-934c-\
+70eb74c63cbd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"diagbifurca", "[", 
+     RowBox[{"1.05", ",", "1.06", ",", "1000", ",", "0.3", ",", "2048", ",", 
+      RowBox[{"2048", "+", "1024"}]}], "]"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.25"}], ",", 
+       RowBox[{"-", "0.05"}]}], "}"}]}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.846496913774761*^9, 3.846496990871337*^9}, {
+   3.846497021132605*^9, 3.846497032744022*^9}, 
+   3.876211585433507*^9},ExpressionUUID->"bf9f86f9-8243-4880-a46d-\
+41373f797ed7"],
+
+Cell["\<\
+Utilizando \[OpenCurlyQuote]Get Coordinates\[CloseCurlyQuote], podemos \
+selecionar (com uma margem de erro, \[EAcute] claro) os pontos em que as \
+bifurca\[CCedilla]\[OTilde]es ocorrem. Fazendo isso, obtive os valores \
+abaixo, a partir dos quais podemos estimar \[Delta]:\
+\>", "Text",
+ CellChangeTimes->{{3.846497201258526*^9, 3.8464972458199873`*^9}, {
+  3.846497462890753*^9, 
+  3.8464974739831657`*^9}},ExpressionUUID->"14e919ca-486e-474b-9139-\
+1b6ba1cf9fdb"],
+
+Cell[BoxData[
+ RowBox[{"temp", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1.051065210488907", ",", 
+      RowBox[{"-", "0.1728666029704197"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1.056551993396369", ",", 
+      RowBox[{"-", "0.12471767803877676`"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1.0577205385439965`", ",", 
+      RowBox[{"-", "0.14266028927417318`"}]}], "}"}]}], "}"}], " "}]], "Input",\
+
+ CellChangeTimes->{{3.84649743743885*^9, 3.846497445229561*^9}, 
+   3.8762115908468504`*^9},ExpressionUUID->"87370aef-737e-497b-b181-\
+e5050b330894"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Delta]est", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"temp", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "1"}], "]"}], "]"}], "-", 
+     RowBox[{"temp", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"temp", "[", 
+      RowBox[{"[", 
+       RowBox[{"3", ",", "1"}], "]"}], "]"}], "-", 
+     RowBox[{"temp", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}], " "}]}]], "Input",
+ CellChangeTimes->{{3.84649745590005*^9, 3.846497529742837*^9}, 
+   3.8762115933932896`*^9},ExpressionUUID->"047096d5-dbde-4123-b1ec-\
+cfa0f6e27206"],
+
+Cell[TextData[{
+ "Dada a margem de erro na determina\[CCedilla]\[ATilde]o \
+\[OpenCurlyDoubleQuote]manual\[CloseCurlyDoubleQuote] dos pontos de bifurca\
+\[CCedilla]\[ATilde]o, essa estimativa \[EAcute] compat\[IAcute]vel com o \
+valor ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Delta]", "\[TildeEqual]", "4.6692"}], TraditionalForm]],
+  ExpressionUUID->"e046d121-e5a2-4db8-88a4-026bb3f0c160"],
+ " do mapa log\[IAcute]stico. Um estudo sistem\[AAcute]tico mostra que este \
+\[EAcute] o ",
+ ButtonBox["valor exato",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://mathworld.wolfram.com/FeigenbaumConstant.html"], None},
+  ButtonNote->"https://mathworld.wolfram.com/FeigenbaumConstant.html"],
+ " tamb\[EAcute]m para o mapa de H\[EAcute]non."
+}], "Text",
+ CellChangeTimes->{{3.84649755516441*^9, 3.846497608050437*^9}, {
+  3.8464976633140707`*^9, 3.8464976915066833`*^9}, {3.846497797200589*^9, 
+  3.846497821509556*^9}, {3.846498270625527*^9, 3.846498303092319*^9}, {
+  3.8464983611172857`*^9, 
+  3.8464983611216717`*^9}},ExpressionUUID->"ccab33fc-a77a-42e9-a400-\
+9d65d459a433"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->
+  "SlideShowHeader",ExpressionUUID->"30c6ccb5-317c-495b-ab56-7f191b2edc86"],
+
+Cell[CellGroupData[{
+
+Cell["Para a pr\[OAcute]xima aula", "Section",
+ CellChangeTimes->{{3.839333537446044*^9, 3.839333542350568*^9}, {
+  3.845196576940206*^9, 
+  3.8451965776485167`*^9}},ExpressionUUID->"22ca6e40-5203-4405-ab21-\
+c6777f1f153d"],
+
+Cell["\<\
+A quinta lista de exerc\[IAcute]cios est\[AAcute] dispon\[IAcute]vel e deve \
+ser entregue at\[EAcute] o dia 15 de novembro.\
+\>", "Item",
+ CellChangeTimes->{{3.839333548032505*^9, 3.839333592379475*^9}, {
+  3.83933705919527*^9, 3.839337097534361*^9}, {3.840043887235896*^9, 
+  3.840043916024474*^9}, {3.840718628268528*^9, 3.840718628553227*^9}, {
+  3.8411646162952423`*^9, 3.841164642990443*^9}, {3.841264877437314*^9, 
+  3.8412648777960176`*^9}, {3.84166638996863*^9, 3.841666410701432*^9}, {
+  3.842346170755411*^9, 3.8423461872472258`*^9}, {3.8435534560057497`*^9, 
+  3.843553474522225*^9}, {3.844080338137369*^9, 3.844080371458786*^9}, {
+  3.845196952815795*^9, 3.845196978083015*^9}, {3.845319668030438*^9, 
+  3.845319668322077*^9}, {3.846058632047674*^9, 3.846058706050715*^9}, {
+  3.87621163655877*^9, 
+  3.8762116446942396`*^9}},ExpressionUUID->"60f6e4f6-2c4b-47f6-9054-\
+2ac5149001f0"]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Slideshow Working",
+CellGrouping->Manual,
+WindowSize->{808.5, 735.75},
+WindowMargins->{{Automatic, 103.5}, {Automatic, 0}},
+TaggingRules->{
+ "PresenterSettings" -> {
+   "ShowNavigationBar" -> False, 
+    "SlideBreakStyles" -> {"Title", "Chapter", "Section"}, "ShowSlideBreaks" -> 
+    True, "Theme" -> {
+     "ThemeName" -> "Default", "FontSetName" -> "Default", "ColorSetName" -> 
+      "Default"}, "WindowSize" -> {808, 866}, 
+    "WindowMargins" -> {{1020, 92}, {98, 71}}, "Dialogs" -> {}, 
+    "UserModifications" -> {{"InheritFromParent", TextAlignment -> Center}, {
+      "Input", CellMargins :> 
+       Dynamic[{{
+          0.185 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+           0.029999999999999995` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+          0.018413319420289852` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}], 
+           0.03452493913043478 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}]}, {
+      "InheritFromParent", FontSlant -> "Italic"}, {
+      "Text", CellMargins :> 
+       Dynamic[{{
+          0.185 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+          0.012407400000000002` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}], 
+           0.012407400000000002` 
+           FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}]}}, 
+    "LastColorUsed" -> Dynamic[
+      CurrentValue[{StyleHints, "ColorSet", "Display2"}]]}, "TryRealOnly" -> 
+  False},
+CellContext->Notebook,
+FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (June 16, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"PresenterTools"}, "Default.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"81a0b787-741f-4e8b-b4a7-dc13586143c3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "SlideShowHeader"->{
+  Cell[580, 22, 136, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ae861ed8-5fa1-4088-84fd-2651cc7b368a",
+   CellTags->"SlideShowHeader"],
+  Cell[2432, 57, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"40fed88a-8620-47ef-b53c-b50de81b6b11",
+   CellTags->"SlideShowHeader"],
+  Cell[9500, 239, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"86fe64e3-32e9-4779-a588-4d826466f4c9",
+   CellTags->"SlideShowHeader"],
+  Cell[11283, 280, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"e2c3d1a2-ed5d-4284-9e67-018c17e6fd81",
+   CellTags->"SlideShowHeader"],
+  Cell[19898, 530, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ed8a4c5e-4160-4344-95e1-9735acf8ca9d",
+   CellTags->"SlideShowHeader"],
+  Cell[26687, 694, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"2970e55d-6d34-4167-8ce5-020d6a07dfcd",
+   CellTags->"SlideShowHeader"],
+  Cell[30038, 787, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"38f195cd-9bd1-4b92-aa24-4b496d952422",
+   CellTags->"SlideShowHeader"],
+  Cell[33193, 867, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"abddd09e-d100-4f15-8e69-35fd58b8982c",
+   CellTags->"SlideShowHeader"],
+  Cell[39244, 1034, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"1208d5a0-14d9-4fcb-99ab-043f9e44bf50",
+   CellTags->"SlideShowHeader"],
+  Cell[41751, 1091, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"be0abe2e-7ea9-4155-b26d-ec86b9b79f52",
+   CellTags->"SlideShowHeader"],
+  Cell[49551, 1293, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"bb5c3a27-f368-4c46-8407-2371a3fd88a9",
+   CellTags->"SlideShowHeader"],
+  Cell[55414, 1476, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"8b1c847b-69b6-46ed-b9c5-dd3785eab3ac",
+   CellTags->"SlideShowHeader"],
+  Cell[61487, 1629, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"deb45ec0-9267-4a35-908f-a141ebded7dd",
+   CellTags->"SlideShowHeader"],
+  Cell[65983, 1771, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"a79bcab2-c0bb-43da-8eba-09d00399039e",
+   CellTags->"SlideShowHeader"],
+  Cell[76214, 2042, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"281a2d41-2252-47dc-b4d5-2547fc5b5434",
+   CellTags->"SlideShowHeader"],
+  Cell[82362, 2217, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"30c6ccb5-317c-495b-ab56-7f191b2edc86",
+   CellTags->"SlideShowHeader"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"SlideShowHeader", 85574, 2292}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 136, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ae861ed8-5fa1-4088-84fd-2651cc7b368a",
+ CellTags->"SlideShowHeader"],
+Cell[719, 26, 449, 8, 275, "Title",ExpressionUUID->"92508663-47f1-4deb-9615-d2c271e8e453"],
+Cell[1171, 36, 1246, 18, 143, "Subtitle",ExpressionUUID->"14f8f51b-58e9-4033-aea1-fd611ac95bb9"]
+}, Open  ]],
+Cell[2432, 57, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"40fed88a-8620-47ef-b53c-b50de81b6b11",
+ CellTags->"SlideShowHeader"],
+Cell[2557, 61, 218, 4, 57, "Section",ExpressionUUID->"f20b05cf-ded6-4dde-ab38-b35759e4ea5b"],
+Cell[2778, 67, 1057, 28, 70, "Text",ExpressionUUID->"de408365-f028-430c-b5e2-b4fa36941087"],
+Cell[3838, 97, 620, 13, 42, "Input",ExpressionUUID->"43fc7f6f-7580-43ef-b8ca-5b32938b6139"],
+Cell[4461, 112, 791, 15, 105, "Text",ExpressionUUID->"e482a0c1-661b-42e6-b8c1-fcbbcf2ef1e9"],
+Cell[5255, 129, 322, 8, 59, "Input",ExpressionUUID->"b48c78c7-cd2c-4864-be1f-e8da30b0dd39"],
+Cell[CellGroupData[{
+Cell[5602, 141, 245, 5, 59, "Input",ExpressionUUID->"b1c007fe-a17c-4133-bd66-e0543c8f2fa7"],
+Cell[5850, 148, 3635, 88, 375, "ItemParagraph",ExpressionUUID->"50797370-5549-4585-8167-d9e7ca510cb3"]
+}, Closed]],
+Cell[9500, 239, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"86fe64e3-32e9-4779-a588-4d826466f4c9",
+ CellTags->"SlideShowHeader"],
+Cell[9625, 243, 383, 7, 100, "Text",ExpressionUUID->"3effeb8f-90f5-41d6-be6a-f5f5bc064e41"],
+Cell[10011, 252, 1269, 26, 195, "Text",ExpressionUUID->"16035f30-1eee-4728-9767-c3bd5d1e06ab"],
+Cell[11283, 280, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"e2c3d1a2-ed5d-4284-9e67-018c17e6fd81",
+ CellTags->"SlideShowHeader"],
+Cell[11408, 284, 8487, 244, 703, "Text",ExpressionUUID->"b2ca4d3b-7bb7-4bdf-99b5-d4a0ba3208ea"],
+Cell[19898, 530, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"ed8a4c5e-4160-4344-95e1-9735acf8ca9d",
+ CellTags->"SlideShowHeader"],
+Cell[20023, 534, 1442, 31, 220, "Text",ExpressionUUID->"91317753-ba71-48e1-81bd-22e1c6c233ba"],
+Cell[21468, 567, 482, 13, 59, "Input",ExpressionUUID->"8f431743-8686-4bc0-b2b2-febd29eb69d5"],
+Cell[21953, 582, 4238, 99, 436, "Input",ExpressionUUID->"ef307d4b-ade5-42fa-aef8-5a50faa11c13"],
+Cell[26194, 683, 490, 9, 38, "ItemParagraph",ExpressionUUID->"61c5e8e9-c532-4918-b741-0430b74a3b23"],
+Cell[26687, 694, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"2970e55d-6d34-4167-8ce5-020d6a07dfcd",
+ CellTags->"SlideShowHeader"],
+Cell[26812, 698, 426, 11, 40, "Text",ExpressionUUID->"e581e4fa-e30b-4226-bce7-a3d945403b16"],
+Cell[CellGroupData[{
+Cell[27263, 713, 336, 8, 42, "Input",ExpressionUUID->"fd8d580a-1b26-4a65-a4ad-5720fa9ec503"],
+Cell[27602, 723, 570, 12, 122, "ItemParagraph",ExpressionUUID->"3afbc804-7a50-49bf-b622-500e1921dfe5"],
+Cell[28175, 737, 386, 11, 45, "Text",ExpressionUUID->"74c2cdd3-9284-4ac3-811c-adfab98cd6a8"],
+Cell[CellGroupData[{
+Cell[28586, 752, 549, 12, 42, "Input",ExpressionUUID->"c686ef4f-e025-4011-a893-b6bb1abf457f"],
+Cell[29138, 766, 873, 17, 178, "ItemParagraph",ExpressionUUID->"c5c82653-0eee-499c-abf5-1d221ef60c2f"]
+}, Closed]]
+}, Closed]],
+Cell[30038, 787, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"38f195cd-9bd1-4b92-aa24-4b496d952422",
+ CellTags->"SlideShowHeader"],
+Cell[30163, 791, 641, 13, 100, "Text",ExpressionUUID->"cb564d4f-3f10-4263-a901-b04efe7c6169"],
+Cell[30807, 806, 578, 16, 74, "ItemNumbered",ExpressionUUID->"c7370c63-58d2-4e0b-ac4e-f2649b78514a"],
+Cell[31388, 824, 946, 22, 130, "ItemNumbered",ExpressionUUID->"b0c91ee9-20c7-476c-9fe0-82ad0d97d5c5"],
+Cell[32337, 848, 853, 17, 75, "Text",ExpressionUUID->"263eb1e5-a1fa-41b4-bb67-201d848f0c9d"],
+Cell[33193, 867, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"abddd09e-d100-4f15-8e69-35fd58b8982c",
+ CellTags->"SlideShowHeader"],
+Cell[33318, 871, 288, 5, 40, "Text",ExpressionUUID->"22a450a0-a896-4649-b9a9-e4956d322ece"],
+Cell[33609, 878, 1306, 32, 147, "Input",ExpressionUUID->"79ae6853-bc38-4649-b7c7-cdee4fee9c90"],
+Cell[34918, 912, 675, 21, 66, "ItemParagraph",ExpressionUUID->"56b48567-8a1c-44e8-9e1d-2bc83fc20533"],
+Cell[35596, 935, 336, 7, 75, "Text",ExpressionUUID->"4b95f96d-efb3-4e25-bb66-3914fa046b9d"],
+Cell[CellGroupData[{
+Cell[35957, 946, 473, 10, 64, "Input",ExpressionUUID->"308dd84a-bf18-42b5-ad53-ccebcae29f80"],
+Cell[36433, 958, 710, 15, 95, "ItemParagraph",ExpressionUUID->"ee07a2e7-a7ca-458f-892e-00dc71a48b7d"],
+Cell[CellGroupData[{
+Cell[37168, 977, 520, 11, 70, "Input",ExpressionUUID->"e97c34de-6115-4742-a47d-f0e4a6a29a67"],
+Cell[37691, 990, 468, 12, 67, "ItemParagraph",ExpressionUUID->"91e076c4-15db-437a-b72f-1e0aebd6e619"],
+Cell[CellGroupData[{
+Cell[38184, 1006, 544, 13, 95, "Input",ExpressionUUID->"b33876d7-44cc-4c5e-9916-4f525f3baea2"],
+Cell[38731, 1021, 474, 8, 95, "ItemParagraph",ExpressionUUID->"25014d13-e8f6-478f-a985-dfb212df2f83"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[39244, 1034, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"1208d5a0-14d9-4fcb-99ab-043f9e44bf50",
+ CellTags->"SlideShowHeader"],
+Cell[39369, 1038, 301, 6, 70, "Text",ExpressionUUID->"cca045d0-3294-40d7-a391-f7f229e1a3a1"],
+Cell[CellGroupData[{
+Cell[39695, 1048, 769, 17, 100, "Input",ExpressionUUID->"8c1dfefa-2c38-4f91-8ca1-e022abf01f28"],
+Cell[40467, 1067, 1269, 21, 263, "ItemParagraph",ExpressionUUID->"e6754b7d-a941-460a-9e7f-60d57158ea1d"]
+}, Closed]],
+Cell[41751, 1091, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"be0abe2e-7ea9-4155-b26d-ec86b9b79f52",
+ CellTags->"SlideShowHeader"],
+Cell[41876, 1095, 1512, 29, 280, "Text",ExpressionUUID->"c14c3a78-1c75-4d89-a9eb-a9e13dee0367"],
+Cell[43391, 1126, 1549, 41, 166, "Input",ExpressionUUID->"9340bc03-b7f5-4a2b-adc8-80ccf4c6989c"],
+Cell[CellGroupData[{
+Cell[44965, 1171, 697, 17, 100, "Input",ExpressionUUID->"69827c8a-7120-4f12-be29-752643337b7e"],
+Cell[45665, 1190, 833, 14, 178, "ItemParagraph",ExpressionUUID->"b7224c3d-e201-4c47-918f-1299caf54d4e"],
+Cell[46501, 1206, 567, 16, 75, "Text",ExpressionUUID->"34fe4e7f-a9ed-448d-909a-46096b9b5f0e"],
+Cell[CellGroupData[{
+Cell[47093, 1226, 658, 16, 100, "Input",ExpressionUUID->"ce3b20d7-7cb1-4b5e-b855-7bf07cc0c2a8"],
+Cell[47754, 1244, 233, 6, 45, "Text",ExpressionUUID->"58f3ff0c-5d04-4c6e-824f-fa95cedbae3b"],
+Cell[CellGroupData[{
+Cell[48012, 1254, 893, 21, 142, "Input",ExpressionUUID->"0af96918-8aaa-4038-be5a-06c7994f7865"],
+Cell[48908, 1277, 604, 11, 165, "Text",ExpressionUUID->"3d2a4242-64c9-4234-849f-7659678bf1c2"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[49551, 1293, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"bb5c3a27-f368-4c46-8407-2371a3fd88a9",
+ CellTags->"SlideShowHeader"],
+Cell[49676, 1297, 221, 4, 57, "Section",ExpressionUUID->"41a6820d-1ece-4233-994a-ab2c73e19b54"],
+Cell[49900, 1303, 1025, 29, 126, "Text",ExpressionUUID->"cab7db2e-193a-4c32-a2d7-a47f99ec0fce"],
+Cell[50928, 1334, 1184, 38, 105, "Text",ExpressionUUID->"1d3761d6-5cca-4763-abf6-ef2684d3124a"],
+Cell[52115, 1374, 728, 21, 42, "Input",ExpressionUUID->"ea3c314d-4922-43e6-a7e1-de8292df9dc1"],
+Cell[52846, 1397, 1329, 36, 165, "Text",ExpressionUUID->"b6501304-3cb6-4891-95fc-2fa56b16c61c"],
+Cell[CellGroupData[{
+Cell[54200, 1437, 478, 12, 58, "Input",ExpressionUUID->"f38baa95-3b6c-45d5-99d7-08fb477628c5"],
+Cell[54681, 1451, 335, 10, 45, "Text",ExpressionUUID->"a3c1ae49-a288-43cf-baa9-05f2983c3da8"],
+Cell[55019, 1463, 380, 10, 58, "Input",ExpressionUUID->"1e582583-b5f1-4d5e-a3ea-ff3f4da84e87"]
+}, Closed]],
+Cell[55414, 1476, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"8b1c847b-69b6-46ed-b9c5-dd3785eab3ac",
+ CellTags->"SlideShowHeader"],
+Cell[55539, 1480, 1709, 37, 250, "Text",ExpressionUUID->"4d72f6a4-5333-4bab-8290-957d6a1ca486"],
+Cell[57251, 1519, 2451, 55, 317, "Input",ExpressionUUID->"ebdb77a8-27af-4be1-86c5-732ad0739569"],
+Cell[59705, 1576, 319, 9, 66, "ItemParagraph",ExpressionUUID->"0035ccf6-57f2-478a-8743-5aebc837244d"],
+Cell[CellGroupData[{
+Cell[60049, 1589, 600, 13, 42, "Input",ExpressionUUID->"f0d26402-eb88-4ee4-9292-60700fe0c26d"],
+Cell[60652, 1604, 411, 10, 42, "Input",ExpressionUUID->"5e263ead-68ac-46b4-9c53-ab102fd33132"],
+Cell[61066, 1616, 406, 10, 42, "Input",ExpressionUUID->"8c2e0267-e9b9-467e-a664-e1743007be76"]
+}, Closed]],
+Cell[61487, 1629, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"deb45ec0-9267-4a35-908f-a141ebded7dd",
+ CellTags->"SlideShowHeader"],
+Cell[61612, 1633, 435, 10, 70, "Text",ExpressionUUID->"180c2e43-d459-49ff-b5ae-23f009f27309"],
+Cell[CellGroupData[{
+Cell[62072, 1647, 302, 7, 42, "Input",ExpressionUUID->"3ec12fb1-3b13-4443-868d-e80a1ab9abab"],
+Cell[CellGroupData[{
+Cell[62399, 1658, 306, 7, 42, "Input",ExpressionUUID->"1ac453d6-5cca-4b41-ad27-8b673f613bcd"],
+Cell[CellGroupData[{
+Cell[62730, 1669, 309, 7, 42, "Input",ExpressionUUID->"f26dca58-8f4f-4748-ad2e-ae7d03f85721"],
+Cell[CellGroupData[{
+Cell[63064, 1680, 309, 7, 42, "Input",ExpressionUUID->"90547a11-91b8-4c69-8d09-d1f5ed2254b0"],
+Cell[63376, 1689, 622, 11, 150, "ItemParagraph",ExpressionUUID->"4040f4bb-c706-47c1-8c9a-5e378c0b5c9c"],
+Cell[CellGroupData[{
+Cell[64023, 1704, 736, 22, 100, "Input",ExpressionUUID->"af44d468-d482-4687-9e34-d7fca6e147e6"],
+Cell[CellGroupData[{
+Cell[64784, 1730, 747, 23, 100, "Input",ExpressionUUID->"5a9fc5b2-dae7-4b8f-8864-46d9021966b5"],
+Cell[65534, 1755, 374, 8, 105, "Text",ExpressionUUID->"70a4fed7-4271-4240-b77f-e3bcc023a0a3"]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[65983, 1771, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"a79bcab2-c0bb-43da-8eba-09d00399039e",
+ CellTags->"SlideShowHeader"],
+Cell[66108, 1775, 1984, 56, 220, "Text",ExpressionUUID->"b94d21c9-28c5-4529-aa60-58c7fbc70743"],
+Cell[68095, 1833, 3289, 81, 452, "Input",ExpressionUUID->"759ad2d3-1f08-4ce3-855f-08cf9a9fb49d"],
+Cell[71387, 1916, 639, 16, 105, "Text",ExpressionUUID->"3a3d02c9-afea-470c-81d1-d615705b7bb5"],
+Cell[72029, 1934, 1903, 46, 385, "Input",ExpressionUUID->"699a8ae3-be76-49fc-badb-e6ce27349c5e"],
+Cell[73935, 1982, 893, 21, 150, "ItemParagraph",ExpressionUUID->"62bd90a2-ecd1-4cc1-a366-15991414f930"],
+Cell[74831, 2005, 288, 7, 45, "Text",ExpressionUUID->"742346c5-8744-47d6-a267-d1a192d08415"],
+Cell[75122, 2014, 1089, 26, 164, "Input",ExpressionUUID->"1129e70c-ecbe-4b00-9005-34cd5d95be79"],
+Cell[76214, 2042, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"281a2d41-2252-47dc-b4d5-2547fc5b5434",
+ CellTags->"SlideShowHeader"],
+Cell[76339, 2046, 350, 7, 40, "Text",ExpressionUUID->"ec96dd7b-2a85-4132-8ed4-d26bae0f455b"],
+Cell[CellGroupData[{
+Cell[76714, 2057, 416, 8, 42, "Input",ExpressionUUID->"1b434e75-75ac-41a9-89ed-9a299df862ed"],
+Cell[77133, 2067, 476, 15, 45, "Text",ExpressionUUID->"b3d16d92-d033-456f-9fbf-0002f271dcf3"],
+Cell[77612, 2084, 339, 7, 42, "Input",ExpressionUUID->"a27565c3-05f1-4d97-b53f-9a0a212735ee"],
+Cell[77954, 2093, 872, 21, 135, "Text",ExpressionUUID->"e46416a1-958f-4ad1-934c-70eb74c63cbd"],
+Cell[CellGroupData[{
+Cell[78851, 2118, 595, 15, 100, "Input",ExpressionUUID->"bf9f86f9-8243-4880-a46d-41373f797ed7"],
+Cell[79449, 2135, 476, 9, 105, "Text",ExpressionUUID->"14e919ca-486e-474b-9139-1b6ba1cf9fdb"],
+Cell[79928, 2146, 590, 16, 87, "Input",ExpressionUUID->"87370aef-737e-497b-b181-e5050b330894"],
+Cell[CellGroupData[{
+Cell[80543, 2166, 691, 21, 41, "Input",ExpressionUUID->"047096d5-dbde-4123-b1ec-cfa0f6e27206"],
+Cell[81237, 2189, 1086, 23, 135, "Text",ExpressionUUID->"ccab33fc-a77a-42e9-a400-9d65d459a433"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[82362, 2217, 122, 2, 61, "SlideShowNavigationBar",ExpressionUUID->"30c6ccb5-317c-495b-ab56-7f191b2edc86",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[82509, 2223, 223, 4, 57, "Section",ExpressionUUID->"22ca6e40-5203-4405-ab21-c6777f1f153d"],
+Cell[82735, 2229, 906, 15, 74, "Item",ExpressionUUID->"60f6e4f6-2c4b-47f6-9054-2ac5149001f0"]
+}, Open  ]]
+}
+]
+*)
+
